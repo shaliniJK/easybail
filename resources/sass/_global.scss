@@ -1,0 +1,77 @@
+:root {
+    --black-grey: #1f2d3d;
+    --steel-grey: #273444;
+    --slate-grey: #3c4858;
+    --grey: #e5e9f2;
+    --light-grey: #f9fafc;
+    --electric-blue: #4db6ac;
+}
+
+nav {
+    background: var(--slate-grey);
+}
+
+body {
+    background: var(--light-grey);
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+}
+
+h2.title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--electric-blue);
+}
+
+button {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: "Source Sans Pro", sans-serif;
+    box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    background-image: linear-gradient(
+        135deg,
+        var(--slate-grey) 0%,
+        var(--electric-blue) 100%
+    );
+}
+
+form {
+    background: #ffffff;
+    max-width: 50rem;
+    margin: auto;
+    margin-top: 3rem;
+    width: 100%;
+    border-radius: 10px;
+    padding: 1.3rem 4rem;
+}
+
+.form-input {
+    flex: 1;
+    margin: auto;
+    margin-top: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid #ced6e0;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.2rem;
+}
+
+.form-input:hover {
+    border: 1px solid var(--grey);
+}
+
+.link {
+    text-align: center;
+}

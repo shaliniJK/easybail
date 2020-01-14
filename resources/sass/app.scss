@@ -1,8 +1,11 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// materialize
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "node_modules/materialize-css/sass/materialize";
+
+@import "global";

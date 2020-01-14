@@ -1,0 +1,239 @@
+:root {
+    --black-grey: #1f2d3d;
+    --steel-grey: #273444;
+    --slate-grey: #3c4858;
+    --grey: #e5e9f2;
+    --light-grey: #f9fafc;
+    --electric-blue: #2364d2;
+}
+
+body {
+    background-color: #ddeefc;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+}
+
+h2.title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--electric-blue);
+}
+
+button {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: "Source Sans Pro", sans-serif;
+    box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    background-image: linear-gradient(
+        135deg,
+        var(--slate-grey) 0%,
+        var(--electric-blue) 100%
+    );
+}
+
+form {
+    background: var(--light-grey);
+    max-width: 30rem;
+    margin: auto;
+    width: 100%;
+    border-radius: 10px;
+    padding: 1.3rem 4rem;
+}
+
+.form-input {
+    flex: 1;
+    margin: auto;
+    margin-top: 0.3rem;
+    border-radius: 5px;
+    border: 1px solid #ced6e0;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.2rem;
+}
+
+.form-input:hover {
+    border: 1px solid var(--grey);
+}
+
+.form-label {
+    font-size: 15px;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+    color: #1a3b5d;
+    width: 100%;
+    display: block;
+    user-select: none;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.link {
+    text-align: center;
+}
+
+div.container {
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    text-align: center;
+}
+
+div.container.bien {
+    position: relative;
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    text-align: center;
+}
+
+div.container a {
+    color: var(--slate-grey);
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+}
+
+body {
+    background-color: #ddeefc;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+}
+
+h2.title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--electric-blue);
+}
+
+button {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: "Source Sans Pro", sans-serif;
+    box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    background-image: linear-gradient(
+        135deg,
+        var(--slate-grey) 0%,
+        var(--electric-blue) 100%
+    );
+}
+
+/* Top and Bottom borders go out */
+div.topBotomBordersOut a:before,
+div.topBotomBordersOut a:after {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: var(--slate-grey);
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+div.topBotomBordersOut a:before {
+    top: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersOut a:after {
+    bottom: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersOut a:hover:before,
+div.topBotomBordersOut a:hover:after {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* Pull up and down  */
+div.pullUpDown a:before,
+div.pullUpDown a:after {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0px;
+    content: "";
+    background: #fff;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+div.pullUpDown a:before {
+    top: 0px;
+}
+
+div.pullUpDown a:after {
+    bottom: 0px;
+}
+
+div.pullUpDown a:hover:before,
+div.pullUpDown a:hover:after {
+    height: 100%;
+}
+
+.mcd-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    width: 250px;
+}
+.mcd-menu li {
+    position: relative;
+}
+.mcd-menu li a {
+    display: block;
+    text-decoration: none;
+    padding: 12px 20px;
+    color: #777;
+
+    text-align: left;
+    height: 36px;
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+
+.mcd-menu li a strong {
+    display: block;
+    text-transform: uppercase;
+}
+.mcd-menu li a small {
+    display: block;
+    font-size: 10px;
+}
+
+.mcd-menu li:hover > a {
+    color: var(--electric-blue);
+}
+
+.mcd-menu li titre {
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
