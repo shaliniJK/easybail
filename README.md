@@ -24,17 +24,18 @@ $ composer self-update
 $ composer install
 ```
 
-Créer une copie du fichier `.env` :
+Ensuite, installez les dépendances NPM du projet avec :
+
+```bash
+$ npm install
+```
+
+Créer une copie du fichier `.env` à la racine du projet :
 
 ```bash
 $ cp .env.example .env
 ```
 
-Générer une app encryption key :
-
-```bash
-$ php artisan key:generate
-```
 
 Créer une base de données vide avec le nom `easybail` pour notre application sur `MySQl`.
 
@@ -42,29 +43,30 @@ Dans le fichier `.env`, indiquez les options `DB_HOST`, `DB_PORT`, `DB_DATABASE`
 
 Une fois que les informations d'identification sont dans le fichier `.env`, vous pouvez maintenant migrer votre base de données.
 
+
+```bash
+$ php artisan key:generate
+```
+
+Vous pouvez maintenant migrer votre base de données :
+
 ```bash
 $ php artisan migrate
 ```
 
-Ensuite, installez les dépendances NPM du projet avec :
+
+Lancer l'étape de build pour les pré-processeurs CSS et JavaScript avec :
 
 ```bash
-$ npm install
+$ npm run dev
 ```
 
-ou si vous utilisez `yarn` :
-
-```bash
-$ yarn
-```
-
-## Exécution de l'application
-
-Si vous avez installé PHP localement, vous pouvez lancer un serveur de développement sur l'adresse _http://localhost:8000_ avec la commande :
+Vous pouvez maintenant lancer un serveur de développement sur l'adresse _http://localhost:8000_ avec la commande :
 
 ```bash
 $ php artisan serve
 ```
+
 
 Si, pour une raison quelconque, votre projet cesse de fonctionner, procédez comme suit pour réinstaller les dépendances et mettre à jour les tables dans la base des données :
 
