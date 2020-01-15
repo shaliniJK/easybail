@@ -23,50 +23,41 @@
 <body>
     <div id="app">
         <nav>
+
+
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">easy bail</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    @guest
                     <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
+                    @if (Route::has('register'))
                     <li><a href="{{ route('register') }}">{{ __('Inscription') }}</a></li>
+                    @endif
+                    @else
+                    <a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div aria-labelledby="navbarDropdown">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Deconexion') }}
+                            {{ Auth::user()->first_name}}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+
+                    @endguest
                 </ul>
             </div>
         </nav>
 
-
-        <div class="container topBotomBordersOut">
-            <!-- Authentication Links -->
-            @guest
-            <a href="{{ route('login') }}">{{ __('Connexion') }}</a>
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">{{ __('Inscription') }}</a>
-
-            @endif
-            @else
-
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
-
-            @endguest
-
-        </div>
-    </div>
-    </nav>
-
-    <main class="py-4">
-        @yield('content')
-    </main>
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
 </body>
 

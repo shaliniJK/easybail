@@ -2,6 +2,7 @@
 
 @section('content')
 
+<h1>{{ __('Inscription') }}</h1>
 
 <form method="POST" action="{{ route('register') }}">
 

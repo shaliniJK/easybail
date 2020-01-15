@@ -17,6 +17,14 @@ body {
     font-size: 16px;
 }
 
+h1 {
+    color: #aaa;
+    font-size: 40px;
+    font-weight: lighter;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
 h2.title {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -26,19 +34,20 @@ h2.title {
 a {
     text-decoration: none;
     color: var(--electric-blue);
+    text-align: center;
 }
 
 button {
-    width: 100%;
-    height: 55px;
+    width: 20rem;
+    height: 3rem;
     border: none;
     border-radius: 5px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
-    font-family: "Source Sans Pro", sans-serif;
     box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
-    color: #fff;
-    margin-top: 20px;
+    color: #ffffff;
+    margin: 1rem auto;
+    display: block;
     cursor: pointer;
     background-image: linear-gradient(
         135deg,

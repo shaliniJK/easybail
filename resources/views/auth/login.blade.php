@@ -4,11 +4,11 @@
 <div class="container">
 
 
-    <div>{{ __('Login') }}</div>
+    <h1>{{ __('Connexion') }}</h1>
     <div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <label for="email">{{ __('Adresse email') }}</label>
+            <label for="email">{{ __('Utilisateur') }}</label>
             <input id="email" type="email" class="form-input form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             @error('email')
             <span class="invalid-feedback" role="alert">
@@ -34,9 +34,11 @@
             </button>
 
             @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}">
-                {{ __('Mot de passe oublié?') }}
-            </a>
+            <div class="link">
+                <a href="{{ route('password.request') }}">
+                    {{ __('Mot de passe oublié ?') }}
+                </a>
+            </div>
             @endif
     </div>
     </form>
