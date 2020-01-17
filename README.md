@@ -71,5 +71,10 @@ $ php artisan migrate
 ```
 
 # pour toute modif css
-
-\$ npm run watch
+```bash
+$ npm run watch
+```
+# pour clean refresh database
+```bash
+$ php artisan migrate:fresh
+```
