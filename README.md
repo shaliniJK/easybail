@@ -70,6 +70,19 @@ $ composer install
 $ php artisan migrate
 ```
 
-# pour toute modif css
-
-\$ npm run watch
+## pour toute modif css
+```bash
+$ npm run watch
+```
+## creer nouvelle table
+```bash
+$ php artisan make:model Locataire -mc
+```
+## pour clean refresh database
+```bash
+$ php artisan migrate:fresh
+```
+## pour retourner en arrière, à la dernière migration
+```bash
+$ php artisan migrate:rollback
+```
