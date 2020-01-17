@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', function () {
     return view('contact');
 });
+
+// properties
+Route::get('/properties', 'PropertyController@index')->name('properties');
+Route::get('/properties/{id}', 'PropertyController@show')->name('property');
