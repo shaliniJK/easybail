@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <p>Showing one property</p>
-    <p>Addresse : {{ $property->address }}</p>
-    <p>Type : {{ $property->type }}</p>
+    <div>
+        <p>Showing one property</p>
+        <p>Addresse : {{ $property->address }}</p>
+        <p>Size : {{ $property->size }} m2</p>
+    </div>
 @endsection
