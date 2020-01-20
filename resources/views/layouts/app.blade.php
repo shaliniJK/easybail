@@ -21,11 +21,11 @@
 </head>
 
 <body>
-
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">easy bail</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+
                 @guest
                 <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
                 @if (Route::has('register'))
