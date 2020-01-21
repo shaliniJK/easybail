@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    @include('partials.alerts')
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">easy bail</a>
