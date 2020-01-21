@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h4>Creating a new property here</h4>
+
+<h1>Nouveau locataire</h1>
+
+
 @endsection

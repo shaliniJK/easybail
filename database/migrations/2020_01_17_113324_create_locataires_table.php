@@ -18,7 +18,7 @@ class CreateLocatairesTable extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->string('email');
-            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Locataire;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LocataireController extends Controller
 {
@@ -14,53 +15,82 @@ class LocataireController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('locataire');
-    }
-
-
-    /**
-     * List all locataires for the currently authenticated user.
-     */
     /*public function index()
     {
-        $locataires = auth()->user()->locataires;
-        return view('locataires.index')->with(compact('locataires'));
+        return view('locataire');
     }*/
 
-    /**
-     * Display the details of the specified property.
-     */
-    public function show(Locataire $locataire)
+    /*public function index()
     {
-        return view('locataires.show', [
-            'locataire' => $locataire,
-        ]);
+        $locataires = DB::table('locataires')->get();
+
+        return view('locataire.index', ['locataires' => $locataires]);
+    }*/
+
+    // render a list of a ressource
+    public function index()
+    {
+        $locataires = Locataire::latest()->get();
+        return view('locataires.index', ['locataires' => $locataires]);
     }
 
-    /**
-     * Returns the view containing the form to create a new property.
-     */
+    // show a single ressource
+    public function show($id)
+    {
+        $locataire = Locataire::find($id);
+        return view('locataires.show', ['locataire' => $locataire]);
+    }
+
+
+    // show a view to create a new ressource
     public function create()
     {
         return view('locataires.create');
     }
 
-    /**
-     * Creates a new property.
-     */
+    // persist that create form
     public function store(Request $request)
     {
+
+        $locataire = new Locataire();
+        $locataire->first_name = request('first_name');
+        $locataire->last_name = request('last_name');
+        $locataire->email = request('email');
+        $locataire->save();
+
+        return redirect('/locataires');
+    }
+
+    // Show a view to edit
+    public function edit($id)
+    {
+        $locataire = Locataire::find($id);
+        return view('locataires.edit', compact('locataire'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $locataire = Locataire::find($id);
+        $locataire->first_name = request('first_name');
+        $locataire->last_name = request('last_name');
+        $locataire->email = request('email');
+        $locataire->save();
+        return redirect('/locataires/' . $locataire->id);
+    }
+
+    // delete
+    public function destroy($id)
+    {
+        //
     }
 }
