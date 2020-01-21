@@ -30,3 +30,4 @@ Route::get('/properties/{property}', 'PropertyController@show')->name('property'
 Route::post('properties', 'PropertyController@store');
 Route::patch('properties/{property}', 'PropertyController@update');
 Route::delete('properties/{property}', 'PropertyController@destroy');
+Route::get('/locataire', 'LocataireController@index')->name('locataire');

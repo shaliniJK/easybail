@@ -12,6 +12,7 @@
         @endif
 
     </div>
+    <h1>Ajouter un locataire </h1>
 </div>
 
 </div>
