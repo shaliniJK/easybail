@@ -3,25 +3,27 @@
 @section('content')
 
 <h1>Mes locataires</h1>
-<div id="wrapper">
-    <div id="page" class="container">
 
 
-        @foreach($locataires as $locataire)
-        <div class="content">
-            <div class="first_name">
-
-                <p>
-                    <a href="{{  $locataire->path() }}">
-                        {{ $locataire->first_name }}
-                        {{ $locataire->last_name }}
-                    </a>
-                </p>
-            </div>
+<form>
+    @foreach($locataires as $locataire)
+    <div class="content">
+        <div class="first_name">
+            <p>
+                <a href="{{  $locataire->path() }}">
+                    {{ $locataire->first_name }}
+                    {{ $locataire->last_name }}
+                </a>
+            </p>
         </div>
-        @endforeach
     </div>
-</div>
+    @endforeach
+
+    <a href=" /locataires/create">
+        Ajouter un nouveau locataire
+    </a>
+</form>
+
 
 
 @endsection
