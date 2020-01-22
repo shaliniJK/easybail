@@ -2,28 +2,25 @@
 
 @section('content')
 
-<h1>Mes locataires</h1>
 
+<div class="container">
+    <h1>Mes locataires</h1>
 
-<form>
-    @foreach($locataires as $locataire)
-    <div class="content">
-        <div class="first_name">
-            <p>
-                <a href="{{  $locataire->path() }}">
-                    {{ $locataire->first_name }}
-                    {{ $locataire->last_name }}
-                </a>
-            </p>
-        </div>
+    <div class="collection ">
+
+        @foreach($locataires as $locataire)
+        <a href="{{ $locataire->path() }}" class="collection-item">
+            {{ $locataire->first_name }}
+            {{ $locataire->last_name }}
+        </a>
+        @endforeach
+
     </div>
-    @endforeach
 
-    <a href=" /locataires/create">
-        Ajouter un nouveau locataire
+    <a href="/locataires/create" class="waves-effect waves-light btn">Ajouter un nouveau locataire
+        <i class="material-icons right">send</i>
     </a>
-</form>
-
+</div>
 
 
 @endsection
