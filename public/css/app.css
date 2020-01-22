@@ -9500,3 +9500,9 @@ form {
   font-style: italic;
 }
 
+.danger {
+  font-style: italic;
+  color: red;
+  font-size: 10px;
+}
+

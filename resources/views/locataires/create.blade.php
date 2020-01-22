@@ -11,7 +11,10 @@
                 <label for="first_name" class="label">Prenom</label>
 
                 <div class="control">
-                    <input id="first_name" type="text" class="input" name="first_name" required autofocus>
+                    <input id="first_name" class="input @error('first_name') danger @enderror" type="text" name="first_name" value="{{ old('first_name')}}">
+                    @error('first_name')
+                    <p class="danger">{{$errors->first('first_name')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -19,7 +22,10 @@
                 <label for="last_name" class="label">Nom</label>
 
                 <div class="control">
-                    <input id="last_name" type="text" class="input" name="last_name" required autofocus>
+                    <input id="last_name" class="input @error('last_name') danger @enderror" type="text" name="last_name" value="{{ old('last_name')}}">
+                    @error('last_name')
+                    <p class="danger">{{$errors->first('last_name')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -27,7 +33,10 @@
                 <label for="email" class="label">E-Mail</label>
 
                 <div class="control">
-                    <input id="email" type="email" class="input" name="email" required>
+                    <input id="email" class="input @error('email') danger @enderror" type="email" name="email" value="{{ old('email')}}">
+                    @error('email')
+                    <p class="danger">{{$errors->first('email')}}</p>
+                    @enderror
                 </div>
             </div>
 

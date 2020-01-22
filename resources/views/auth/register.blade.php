@@ -6,8 +6,6 @@
 
 <form method="POST" action="{{ route('register') }}">
 
-
-
   @csrf
   <label for="first_name">Prénom</label>
   <input id="first_name" type="text" class="form-input form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autofocus>

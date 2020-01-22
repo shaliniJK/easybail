@@ -8,6 +8,7 @@
         <form method="POST" action="/locataires/{{ $locataire->id}}">
             @csrf
             @method('PUT')
+
             <div class="field">
                 <label for="first_name" class="label">Prenom</label>
 

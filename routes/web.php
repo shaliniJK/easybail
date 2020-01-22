@@ -31,9 +31,9 @@ Route::post('properties', 'PropertyController@store');
 Route::patch('properties/{property}', 'PropertyController@update');
 Route::delete('properties/{property}', 'PropertyController@destroy');
 
-Route::get('/locataires', 'LocataireController@index');
+Route::get('/locataires', 'LocataireController@index')->name('locataires.index');
 Route::post('/locataires', 'LocataireController@store');
 Route::get('/locataires/create', 'LocataireController@create');
-Route::get('/locataires/{locataire}', 'LocataireController@show');
+Route::get('/locataires/{locataire}', 'LocataireController@show')->name('locataires.show');
 Route::get('/locataires/{locataire}/edit', 'LocataireController@edit');
-Route::get('/locataires/{locataire}', 'LocataireController@update');
+Route::put('/locataires/{locataire}', 'LocataireController@update');
