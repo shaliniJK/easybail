@@ -8,7 +8,7 @@
 
     <ul class="collection with-header">
         <li class="collection-header">
-            <h4>Mes informations personnels</h4>
+            <h5>Mes informations personnels</h5>
         </li>
         <li class="collection-item">{{ Auth::user()->first_name}}</li>
         <li class="collection-item">{{ Auth::user()->last_name}}</li>

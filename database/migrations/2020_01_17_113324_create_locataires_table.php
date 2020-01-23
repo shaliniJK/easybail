@@ -15,9 +15,13 @@ class CreateLocatairesTable extends Migration
     {
         Schema::create('locataires', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('last_name');
             $table->string('first_name');
+            $table->string('last_name');
+            $table->string('address');
+            $table->string('postalcode');
+            $table->string('city');
             $table->string('email');
+            $table->string('nationality');
             $table->timestamps();
         });
     }

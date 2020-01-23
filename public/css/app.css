@@ -9480,7 +9480,7 @@ form {
 
 .picture {
   position: relative;
-  height: 560px;
+  height: 30rem;
   background: url(https://source.unsplash.com/kVf7VRgg4p8/1920x1080) no-repeat center center;
   background-size: cover;
 }
