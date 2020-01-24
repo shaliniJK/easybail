@@ -17,9 +17,10 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = auth()->user()->properties;
+        $user = auth()->user();
+        $properties = $user->properties;
 
-        return view('properties.index')->with(compact('properties'));
+        return view('properties.index')->with(compact('user', 'properties'));
     }
 
     /**
@@ -30,6 +31,7 @@ class PropertyController extends Controller
     public function show(Property $property)
     {
         return view('properties.show', [
+            'user' => auth()->user(),
             'property' => $property,
         ]);
     }
@@ -39,7 +41,9 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('properties.create');
+        return view('properties.create', [
+            'user' => auth()->user(),
+        ]);
     }
 
     /**
