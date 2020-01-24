@@ -40,4 +40,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Property::class);
     }
+
+    public function initials(): string
+    {
+        return strtoupper(substr($this->first_name, 0, 1).substr($this->last_name, 0, 1));
+    }
+
+    public function fullName(): string
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
 }

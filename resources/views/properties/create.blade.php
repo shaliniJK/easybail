@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h4>Creating a new property here</h4>
+<div class="row">
+    <div class="page-header">
+        <h4 class="page-title">
+            Ajouter un nouveau bien
+        </h4>
+    </div>
+</div>
 @endsection
