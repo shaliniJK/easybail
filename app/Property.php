@@ -12,4 +12,14 @@ class Property extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    /**
+     * Returns the full address of this property.
+     *
+     * @return string
+     */
+    public function fullAddress(): string
+    {
+        return $this->address;
+    }
 }

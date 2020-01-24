@@ -5,7 +5,7 @@
     <div class="col-md-8">
         <form class="card">
             <div class="card-body">
-                <h3 class="card-title">Ajouter un nouveau bien</h3>
+                <h3 class="card-title">Modifier ce bien</h3>
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group">
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                <button type="submit" class="btn btn-primary">Modifier</button>
             </div>
         </form>
     </div>

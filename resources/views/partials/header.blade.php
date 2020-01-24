@@ -30,11 +30,14 @@
                         <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-help-circle"></i> Besoin d'aide ?
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="dropdown-icon fe fe-log-out"></i> Déconnexion
                         </a>
                     </div>
                 </div>
+                <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
             <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
                 <span class="header-toggler-icon"></span>

@@ -56,6 +56,19 @@ class PropertyController extends Controller
     }
 
     /**
+     * Returns the view containing the form to edit an existing property.
+     *
+     * @param Property $property
+     */
+    public function edit(Property $property)
+    {
+        return view('properties.edit', [
+            'user' => auth()->user(),
+            'property' => $property,
+        ]);
+    }
+
+    /**
      * Updates the given property.
      *
      * @param Property $property

@@ -28,6 +28,7 @@ Route::get('/properties', 'PropertyController@index')->name('properties');
 Route::get('/properties/create', 'PropertyController@create')->name('properties.create');
 Route::get('/properties/{property}', 'PropertyController@show')->name('property');
 Route::post('properties', 'PropertyController@store');
+Route::get('/properties/{property}/edit', 'PropertyController@edit')->name('property.edit');
 Route::patch('properties/{property}', 'PropertyController@update');
 Route::delete('properties/{property}', 'PropertyController@destroy');
 
