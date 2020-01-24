@@ -43,7 +43,7 @@
                 Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum duo.
                 <br> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae admodum voluptatum per.
             </p>
-            <a href="#" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Créer un compte</a>
+            <a href="{{ route('register') }}" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Créer un compte</a>
         </div>
     </div>
     <!-- three-blcok -->

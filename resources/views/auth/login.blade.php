@@ -5,6 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col col-login mx-auto">
+                <div class="text-center mb-6">
+                    logo easy bail
+                </div>
                 <form class="card" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="card-body p-6">
