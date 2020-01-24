@@ -4,53 +4,51 @@
 
 <div class="container">
 
+    <div class="page">
+        <div class="page-main">
 
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Locataire</span>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Prénom</td>
-                                <td>{{ $locataire-> first_name }}</td>
-                            </tr>
-                            <tr>
-                                <td>Nom</td>
-                                <td>{{ $locataire-> last_name }}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td>{{ $locataire-> email }}</td>
-                            </tr>
-                            <tr>
-                                <td>Adresse</td>
-                                <td>{{ $locataire->address }}</td>
-                            </tr>
-                            <tr>
-                                <td>Code postale</td>
-                                <td>{{ $locataire->postalcode }}</td>
-                            </tr>
-                            <tr>
-                                <td>Ville</td>
-                                <td>{{ $locataire->city }}</td>
-                            </tr>
-                            <tr>
-                                <td>Nationalité</td>
-                                <td>{{ $locataire->nationality }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{ $locataire-> first_name }} {{ $locataire-> last_name }}</h3>
                 </div>
-                <div class="card-action">
-                    <a href=" /locataires/{{ $locataire->id}}/edit ">Modifier</a>
-
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">adresse email</label>
+                            <input class="form-control" placeholder={{ $locataire-> email }} disabled="" value={{ $locataire-> email }} />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">adresse</label>
+                            <input class="form-control" placeholder={{ $locataire->address }} disabled="" value={{ $locataire-> address }} />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">code postal</label>
+                            <input class="form-control" placeholder={{ $locataire->postalcode }} disabled="" value={{ $locataire-> postalcode }} />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ville</label>
+                            <input class="form-control" placeholder={{ $locataire->city }} disabled="" value={{ $locataire-> city }} />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">nationalité</label>
+                            <input class="form-control" placeholder={{ $locataire->nationality }} disabled="" value={{ $locataire-> nationality }} />
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
+
+
+
+<div class="card-action">
+    <a href=" /locataires/{{ $locataire->id}}/edit ">Modifier</a>
 
 </div>
+
 @endsection

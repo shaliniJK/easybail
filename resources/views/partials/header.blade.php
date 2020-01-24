@@ -54,7 +54,7 @@
                         <a href="{{ route('properties') }}" class="nav-link"><i class="fe fe-box"></i> Mes Biens</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i class="fe fe-file-text"></i> Mes Locations</a>
+                        <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i class="fe fe-file-text"></i> Mes Locataires</a>
                         <div class="dropdown-menu dropdown-menu-arrow">
                             <a href="./profile.html" class="dropdown-item ">Profile</a>
                             <a href="./login.html" class="dropdown-item ">Login</a>

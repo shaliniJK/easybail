@@ -40,7 +40,7 @@ class LocataireController extends Controller
     // Show a view to edit
     public function edit(Locataire $locataire)
     {
-        return view('locataires.edit', compact('locataire'));
+        return view('locataires.edit', compact('user', 'locataire'));
     }
 
     public function update(Locataire $locataire)

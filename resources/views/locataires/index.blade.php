@@ -2,25 +2,45 @@
 
 @section('content')
 
+<div class="page">
+    <div class="page-main">
+        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+        </div>
+        <div class="my-3 my-md-5">
+            <div class="container">
+                <div class="row row-cards">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <table class="table card-table table-vcenter">
+                                <tr>
+                                    <th>Mes locataires</th>
+                                    <th class="d-none d-sm-table-cell">Date</th>
+                                    <th class="d-none d-md-table-cell">Amount</th>
+                                </tr>
+                                @foreach($locataires as $locataire)
+                                <tr>
+                                    <td>{{ $locataire->last_name }}</td>
+                                    <td class="d-none d-sm-table-cell">{{ $locataire->first_name }}</td>
+                                    <td class="d-none d-md-table-cell"><a href="{{ $locataire->path() }}" class="collection-item">détaille</a></td>
+                                </tr>
+                                @endforeach
 
-<div class="container">
-    <h1>Mes locataires</h1>
+                            </table>
+                        </div>
 
-    <div class="collection ">
-
-        @foreach($locataires as $locataire)
-        <a href="{{ $locataire->path() }}" class="collection-item">
-            {{ $locataire->first_name }}
-            {{ $locataire->last_name }}
-        </a>
-        @endforeach
-
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <a href="/locataires/create" class="waves-effect waves-light btn">Ajouter un nouveau locataire
-        <i class="material-icons right">send</i>
+
     </a>
+
+
 </div>
+
 
 
 @endsection
