@@ -10,34 +10,24 @@ use Illuminate\Support\Facades\Log;
 class LocataireController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    /*public function __construct()
-    {
-        $this->middleware('auth');
-    }*/
-
-    // render a list of a ressource
     public function index()
     {
+        $user = auth()->user();
         $locataires = Locataire::latest()->get();
-        return view('locataires.index', ['locataires' => $locataires]);
+        return view('locataires.index')->with(compact('user', 'locataires'));
     }
 
     // show a single ressource
     public function show(Locataire $locataire)
     {
-        return view('locataires.show', ['locataire' => $locataire]);
+        return view('locataires.show', ['user' => auth()->user(), 'locataire' => $locataire]);
     }
 
 
     // show a view to create a new ressource
     public function create()
     {
-        return view('locataires.create');
+        return view('locataires.create', ['user' => auth()->user()]);
     }
 
     // persist that create form
