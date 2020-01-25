@@ -71,18 +71,31 @@ $ php artisan migrate
 ```
 
 ## pour toute modif css
+
 ```bash
 $ npm run watch
 ```
+
 ## creer nouvelle table
+
 ```bash
 $ php artisan make:model Locataire -mc
 ```
+
 ## pour clean refresh database
+
 ```bash
 $ php artisan migrate:fresh
 ```
+
+## pour remplir des données dans la base après un refresh
+
+```bash
+$ php artisan db:seed --class=PropertyTypesTableSeeder
+```
+
 ## pour retourner en arrière, à la dernière migration
+
 ```bash
 $ php artisan migrate:rollback
 ```

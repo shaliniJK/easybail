@@ -54,13 +54,8 @@
                         <a href="{{ route('properties') }}" class="nav-link"><i class="fe fe-box"></i> Mes Biens</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i class="fe fe-file-text"></i> Mes Locataires</a>
-                        <div class="dropdown-menu dropdown-menu-arrow">
-                            <a href="./profile.html" class="dropdown-item ">Profile</a>
-                            <a href="./login.html" class="dropdown-item ">Login</a>
-                            <a href="./register.html" class="dropdown-item ">Register</a>
-                            <a href="./forgot-password.html" class="dropdown-item ">Forgot password</a>
-                        </div>
+                        <a href="{{ route('locataires.index') }}" class="nav-link active"><i class="fe fe-file-text"></i> Mes Locataires</a>
+
                     </li>
                     <li class="nav-item dropdown">
                         <a href="./form-elements.html" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
