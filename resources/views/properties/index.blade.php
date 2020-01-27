@@ -31,7 +31,7 @@
                     <div class="card-header">
                         <h3 class="card-title">{{ $property->type }}</h3>
                         <div class="card-options">
-                            <a href="{{ route('property', $property->id) }}" class="btn btn-primary btn-sm">Voir plus</a>
+                            <a href="{{ route('properties.show', $property->id) }}" class="btn btn-primary btn-sm">Voir plus</a>
                         </div>
                     </div>
                     <div class="card-body">

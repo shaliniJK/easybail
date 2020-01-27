@@ -85,7 +85,7 @@ class PropertyController extends Controller
     {
         $property->update($this->validateProperty());
 
-        return redirect(route('property', $property->id))->with('success', 'Votre bien a été modifié !');
+        return redirect(route('properties.show', $property->id))->with('success', 'Votre bien a été modifié !');
     }
 
     /**

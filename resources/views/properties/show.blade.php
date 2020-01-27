@@ -17,7 +17,7 @@
             </a>
         </div>
         <div class="list-group list-group-transparent mb-0">
-            <a href="{{ route('property.edit', $property->id) }}" class="list-group-item list-group-item-action">
+            <a href="{{ route('properties.edit', $property->id) }}" class="list-group-item list-group-item-action">
                 <span class="icon mr-3"><i class="fe fe-edit-2"></i></span>Modifier ce bien
             </a>
         </div>
