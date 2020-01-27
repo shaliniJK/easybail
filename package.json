@@ -22,5 +22,7 @@
         "sass-loader": "^7.1.0",
         "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": {}
+    "dependencies": {
+        "places.js": "^1.17.1"
+    }
 }

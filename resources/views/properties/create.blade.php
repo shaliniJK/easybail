@@ -84,7 +84,7 @@
                     <div class="col-sm-5">
                         <div class="form-group">
                             <label for="address" class="form-label">Address <span class="form-required">*</span></label>
-                            <input name="address" type="text" required class="form-control @error('address') is-invalid @enderror" placeholder="Numéro et nom rue" value="{{ old('address') }}">
+                            <input name="address" id="address" type="text" required class="form-control @error('address') is-invalid @enderror" placeholder="Numéro et nom rue" value="{{ old('address') }}">
                             @error('address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
                     <div class="col-sm-5">
                         <div class="form-group">
                             <label for="address2" class="form-label">Address 2</label>
-                            <input name="address2" type="text" class="form-control @error('address2') is-invalid @enderror" placeholder="Addresse ligne 2" value="{{ old('address2') }}">
+                            <input name="address2" id="address2" type="text" class="form-control @error('address2') is-invalid @enderror" placeholder="Addresse ligne 2" value="{{ old('address2') }}">
                             @error('address2')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -106,7 +106,7 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group">
                             <label name="city" class="form-label">Ville <span class="form-required">*</span></label>
-                            <input name="city" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="Ville" value="{{ old('city') }}" required>
+                            <input name="city" id="city" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="Ville" value="{{ old('city') }}" required>
                             @error('city')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -117,7 +117,7 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="form-group">
                             <label for="postcode" class="form-label">Code Postale <span class="form-required">*</span></label>
-                            <input name="postcode" type="number" class="form-control @error('postcode') is-invalid @enderror" placeholder="Code Postale" value="{{ old('postcode') }}" required>
+                            <input name="postcode" id="postcode" type="number" class="form-control @error('postcode') is-invalid @enderror" placeholder="Code Postale" value="{{ old('postcode') }}" required>
                             @error('postcode')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -128,7 +128,7 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="form-group">
                             <label for="country" class="form-label">Pays <span class="form-required">*</span></label>
-                            <input name="country" type="text" class="form-control @error('country') is-invalid @enderror" placeholder="Pays" value="{{ old('country') }}" required>
+                            <input name="country" id="country" type="text" class="form-control @error('country') is-invalid @enderror" placeholder="Pays" value="{{ old('country') }}" required>
                             @error('country')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
