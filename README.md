@@ -20,19 +20,19 @@ Avant de lancer ce projet, il faut avoir installé sur votre machine :
 Après avoir cloné ce projet, assurez-vous d'avoir la dernière version de Composer et téléchargez les dépendances PHP du projet avec les commandes suivantes :
 
 ```bash
-$ composer install
+composer install
 ```
 
 Ensuite, installez les dépendances NPM du projet avec :
 
 ```bash
-$ npm install
+npm install
 ```
 
 Créer une copie du fichier `.env` à la racine du projet :
 
 ```bash
-$ cp .env.example .env
+cp .env.example .env
 ```
 
 Créer une base de données vide avec le nom `easybail` pour notre application sur `MySQl`.
@@ -42,60 +42,67 @@ Dans le fichier `.env`, indiquez les options `DB_HOST`, `DB_PORT`, `DB_DATABASE`
 Une fois que les informations d'identification sont dans le fichier `.env`, vous pouvez maintenant migrer votre base de données.
 
 ```bash
-$ php artisan key:generate
+php artisan key:generate
 ```
 
 Vous pouvez maintenant migrer votre base de données :
 
 ```bash
-$ php artisan migrate
+php artisan migrate
 ```
 
 Lancer l'étape de build pour les pré-processeurs CSS et JavaScript avec :
 
 ```bash
-$ npm run dev
+npm run dev
 ```
 
 Vous pouvez maintenant lancer un serveur de développement sur l'adresse _http://localhost:8000_ avec la commande :
 
 ```bash
-$ php artisan serve
+php artisan serve
 ```
 
 Si, pour une raison quelconque, votre projet cesse de fonctionner, procédez comme suit pour réinstaller les dépendances et mettre à jour les tables dans la base des données :
 
 ```bash
-$ composer install
-$ php artisan migrate
+composer install
+php artisan migrate
 ```
+
+Si une ou plusieurs classes sont introuvables :
+
+```bash
+composer dump-autoload
+```
+
 
 ## pour toute modif css
 
 ```bash
-$ npm run watch
+npm run watch
 ```
 
 ## creer nouvelle table
 
 ```bash
-$ php artisan make:model Locataire -mc
+php artisan make:model Locataire -mc
 ```
 
 ## pour clean refresh database
 
 ```bash
-$ php artisan migrate:fresh
+php artisan migrate:fresh
 ```
 
 ## pour remplir des données dans la base après un refresh
 
 ```bash
-$ php artisan db:seed --class=PropertyTypesTableSeeder
+php artisan db:seed --class=PropertyTypesTableSeeder
 ```
 
 ## pour retourner en arrière, à la dernière migration
 
 ```bash
-$ php artisan migrate:rollback
+php artisan migrate:rollback
 ```
