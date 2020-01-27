@@ -23,6 +23,7 @@
         </div>
     </div>
     <div class="col-lg-9">
+        @include('partials.alerts')
         <div class="row row-deck">
             @foreach($properties as $property)
             <div class="col-lg-6">
@@ -40,20 +41,6 @@
                 </div>
             </div>
             @endforeach
-
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Studio Cormontaigne</h3>
-                        <div class="card-options">
-                            <a href="#" class="btn btn-primary btn-sm">Voir plus</a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        Locataire 1
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

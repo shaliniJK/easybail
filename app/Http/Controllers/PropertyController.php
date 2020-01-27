@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Property;
+use App\PropertyType;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -43,16 +44,22 @@ class PropertyController extends Controller
     {
         return view('properties.create', [
             'user' => auth()->user(),
+            'types' => PropertyType::all(),
         ]);
     }
 
     /**
      * Creates a new property.
-     *
-     * @param Request $request
      */
     public function store(Request $request)
     {
+        $property = $this->validateProperty();
+
+        $user = $request->user();
+
+        $user->properties()->create($property);
+
+        return redirect(route('properties'))->with('success', 'Votre bien a été ajouté !');
     }
 
     /**
@@ -65,6 +72,7 @@ class PropertyController extends Controller
         return view('properties.edit', [
             'user' => auth()->user(),
             'property' => $property,
+            'types' => PropertyType::all(),
         ]);
     }
 
@@ -75,6 +83,9 @@ class PropertyController extends Controller
      */
     public function update(Property $property)
     {
+        $property->update($this->validateProperty());
+
+        return redirect(route('property', $property->id))->with('success', 'Votre bien a été modifié !');
     }
 
     /**
@@ -84,5 +95,24 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        $property->delete();
+
+        return redirect(route('properties'))->with('warning', 'Votre bien a été supprimé !');
+    }
+
+    protected function validateProperty()
+    {
+        return request()->validate([
+            'name' => 'string|nullable',
+            'address' => 'string|required',
+            'address2' => 'string|nullable',
+            'city' => 'string|required',
+            'postcode' => ['integer', 'digits:5', 'required'],
+            'country' => 'string|required',
+            'nb_rooms' => ['integer', 'min:0', 'required'],
+            'size' => 'integer|nullable',
+            'furnished' => 'boolean|required',
+            'property_type_id' => 'required|exists:property_types,id',
+        ]);
     }
 }

@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    protected $fillable = ['type', 'address', 'nb_rooms', 'size', 'furnished'];
+    protected $fillable = ['name', 'address', 'address2', 'city', 'postcode', 'country', 'nb_rooms', 'size', 'furnished', 'property_type_id'];
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function propertyType()
+    {
+        return $this->belongsTo(PropertyType::class);
     }
 
     /**

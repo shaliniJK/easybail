@@ -11,19 +11,25 @@
         <a href="{{ route('properties.create') }}" class="btn btn-block btn-primary mb-6">
             Ajouter un nouveau locataire
         </a>
-        <!-- Getting started -->
         <div class="list-group list-group-transparent mb-0">
-            <a href="../docs/index.html" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-info"></i></span>Description du bien</a>
+            <a href="../docs/index.html" class="list-group-item list-group-item-action active">
+                <span class="icon mr-3"><i class="fe fe-info"></i></span>Description du bien
+            </a>
         </div>
-        <!-- Components -->
         <div class="list-group list-group-transparent mb-0">
-            <a href="{{ route('property.edit', $property->id) }}" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-edit-2"></i></span>Modifier ce bien</a>
-            <a href="#" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-trash-2"></i></span>Supprimer</a>
+            <a href="{{ route('property.edit', $property->id) }}" class="list-group-item list-group-item-action">
+                <span class="icon mr-3"><i class="fe fe-edit-2"></i></span>Modifier ce bien
+            </a>
         </div>
+        <button type="button" class="btn btn-danger w-100 d-block mt-4" data-toggle="modal" data-target="#modal-delete-property">
+            <span class="icon mr-3"><i class="fe fe-trash-2 text-white"></i></span>Supprimer
+        </button>
     </div>
     <div class="col-lg-9">
+        @include('partials.alerts')
+
         <div class="card">
-            <div class="card-status bg-purple"></div>
+            <div class="card-status bg-blue"></div>
             <div class="card-header">
                 <h3 class="card-title">Client card</h3>
             </div>
@@ -104,8 +110,35 @@
                         </button>
                     </td>
                 </tr>
-            </tbody></table>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{{-- Modal delete property --}}
+
+<div id="modal-delete-property" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger">Attention ! Cet action est irréversible !</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Voulez vous vraiment supprimer ce bien ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-property-form').submit();">Supprimer</button>
+            </div>
+            <form action="{{ route('property.delete', $property->id) }}" id="delete-property-form" method="POST" style="display: none;">
+                @csrf
+                @method('DELETE')
+            </form>
         </div>
     </div>
 </div>
+
 @endsection
