@@ -13,7 +13,7 @@
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('profile') }}">
                             <i class="dropdown-icon fe fe-user"></i> Profile
                         </a>
                         <a class="dropdown-item" href="#">
