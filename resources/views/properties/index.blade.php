@@ -24,12 +24,14 @@
     </div>
     <div class="col-lg-9">
         @include('partials.alerts')
+
         <div class="row row-deck">
-            @foreach($properties as $property)
+
+            @forelse($properties as $property)
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">{{ $property->type }}</h3>
+                        <h3 class="card-title">{{ $property->designation() }}</h3>
                         <div class="card-options">
                             <a href="{{ route('properties.show', $property->id) }}" class="btn btn-primary btn-sm">Voir plus</a>
                         </div>
@@ -40,7 +42,19 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-status bg-yellow"></div>
+                    <div class="card-body">
+                        <h4 class="mb-3">Vous n'avez pas encore ajouté vos biens !</h4>
+                        <a href="{{ route('properties.create') }}" class="btn btn-block w-50 btn-primary mt-4">
+                            Ajouter un bien
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endforelse
         </div>
     </div>
 </div>
