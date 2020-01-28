@@ -11,7 +11,7 @@ let hexToRgba = function(hex, opacity) {
           }
         : null;
 
-    return 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + opacity + ')';
+    return "rgba(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ", " + opacity + ")";
 };
 
 /**
@@ -19,7 +19,7 @@ let hexToRgba = function(hex, opacity) {
  */
 $(document).ready(function() {
     /** Constant div card */
-    const DIV_CARD = 'div.card';
+    const DIV_CARD = "div.card";
 
     /** Initialize tooltips */
     $('[data-toggle="tooltip"]').tooltip();
@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
 
     /** Function for remove card */
-    $('[data-toggle="card-remove"]').on('click', function(e) {
+    $('[data-toggle="card-remove"]').on("click", function(e) {
         let $card = $(this).closest(DIV_CARD);
 
         $card.remove();
@@ -40,20 +40,20 @@ $(document).ready(function() {
     });
 
     /** Function for collapse card */
-    $('[data-toggle="card-collapse"]').on('click', function(e) {
+    $('[data-toggle="card-collapse"]').on("click", function(e) {
         let $card = $(this).closest(DIV_CARD);
 
-        $card.toggleClass('card-collapsed');
+        $card.toggleClass("card-collapsed");
 
         e.preventDefault();
         return false;
     });
 
     /** Function for fullscreen card */
-    $('[data-toggle="card-fullscreen"]').on('click', function(e) {
+    $('[data-toggle="card-fullscreen"]').on("click", function(e) {
         let $card = $(this).closest(DIV_CARD);
 
-        $card.toggleClass('card-fullscreen').removeClass('card-collapsed');
+        $card.toggleClass("card-fullscreen").removeClass("card-collapsed");
 
         e.preventDefault();
         return false;
@@ -64,26 +64,31 @@ $(document).ready(function() {
  * Functions to implement address autocomplete using Algolia places
  */
 
-import places from 'places.js';
+import places from "places.js";
 
 (function() {
     const placesAutocomplete = places({
-        appId: 'pl0CJ7FEFC3X',
-        apiKey: 'db29b60150a0402860bd2632f6c74afa',
-        container: document.querySelector('#address'),
+        appId: "pl0CJ7FEFC3X",
+        apiKey: "db29b60150a0402860bd2632f6c74afa",
+        container: document.querySelector("#address"),
         templates: {
             value: function(suggestion) {
                 return suggestion.name;
             }
         }
     }).configure({
-        type: 'address'
+        type: "address"
     });
-    placesAutocomplete.on('change', function resultSelected(e) {
-        document.querySelector('#address2').value =
-            e.suggestion.administrative || '';
-        document.querySelector('#city').value = e.suggestion.city || '';
-        document.querySelector('#postcode').value = e.suggestion.postcode || '';
-        document.querySelector('#country').value = e.suggestion.country || '';
+    placesAutocomplete.on("change", function resultSelected(e) {
+        if (
+            document.querySelector("#address2") !== null &&
+            document.querySelector("#address2") !== undefined
+        ) {
+            document.querySelector("#address2").value =
+                e.suggestion.administrative || "";
+        }
+        document.querySelector("#city").value = e.suggestion.city || "";
+        document.querySelector("#postcode").value = e.suggestion.postcode || "";
+        document.querySelector("#country").value = e.suggestion.country || "";
     });
 })();

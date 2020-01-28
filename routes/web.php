@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/paiement', 'PaiementController@index')->name('paiement');
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -34,10 +36,13 @@ Route::delete('/properties/{property}', 'PropertyController@destroy')->name('pro
 
 Route::get('/locataires', 'LocataireController@index')->name('locataires.index');
 Route::post('/locataires', 'LocataireController@store');
-Route::get('/locataires/create', 'LocataireController@create');
+Route::get('/locataires/create', 'LocataireController@create')->name('locataires.create');
 Route::get('/locataires/{locataire}', 'LocataireController@show')->name('locataires.show');
-Route::get('/locataires/{locataire}/edit', 'LocataireController@edit');
+Route::get('/locataires/{locataire}/edit', 'LocataireController@edit')->name('locataires.edit');
 Route::put('/locataires/{locataire}', 'LocataireController@update');
+
+//Route::get('/locataires/{locataire}/edit', 'LocataireController@edit');
+//Route::patch('/locataires/{locataire}/edit', 'LocataireController@update')->name('locataire.update');
 
 // user profile
 Route::get('/profile', 'ProfileController@index')->name('profile');

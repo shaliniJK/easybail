@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow" />
@@ -10,7 +11,7 @@
     <meta http-equiv="Content-Language" content="en" />
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#4188c9">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="True">
@@ -36,36 +37,33 @@
                 </div>
             </header>
             <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
-                A New Way<br>
-                To Start Business
+                Easy Bail
             </h1>
             <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-                Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum duo.
-                <br> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae admodum voluptatum per.
+                Vous avez investi dans un bien immobilier que vous louez ou gérez vous-même ? <br>
+                Easy Bail est la solution de gestion locative.
             </p>
             <a href="{{ route('register') }}" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Créer un compte</a>
         </div>
     </div>
     <!-- three-blcok -->
     <div class="container my-5 py-2">
-        <h2 class="text-center font-weight-bold my-5">Smartest protection for your site</h2>
+        <h3 class="text-center font-weight-bold my-5">Une meilleure gestion pour plus de bénéfices. <br>
+            Avec Easybail la gestion locative n’a jamais été aussi simple.</h3>
         <div class="row">
             <div data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
-                <img src="img/smart-protect-1.jpg" alt="Anti-spam" class="mx-auto">
-                <h4>Anti-spam</h4>
-                <p>Lorem ipsum dolor sit amet porro his no his deleniti</p>
+                <h4>Editez vos beaux et vos états des lieux</h4>
             </div>
             <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
-                <img src="img/smart-protect-2.jpg" alt="Phishing Detect" class="mx-auto">
-                <h4>Phishing Detect</h4>
-                <p>Ne error antiopam usu. Sed vocen concludaturque ea</p>
+                <h4>Transmettez vos quittances de loyers</h4>
             </div>
             <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
-                <img src="img/smart-protect-3.jpg" alt="Smart Scan" class="mx-auto">
-                <h4>Smart Scan</h4>
-                <p>Et usu ocurreret elaboraret doctus prodesse assueverit.</p>
+
+                <h4>Suivez vos paiements et vos avis d’échéance</h4>
+
             </div>
         </div>
+
     </div>
     <div class="jumbotron jumbotron-fluid feature" id="feature-first">
 
@@ -107,5 +105,6 @@
                 </div>
             </div>
         </div>
-    </body>
-    </html>
+</body>
+
+</html>

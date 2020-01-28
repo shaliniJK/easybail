@@ -58,7 +58,7 @@
 
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="./form-elements.html" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
+                        <a href="{{ route('paiement') }}" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
                     </li>
                     <li class="nav-item">
                         <a href="./gallery.html" class="nav-link"><i class="fe fe-message-circle"></i> Messagerie</a>

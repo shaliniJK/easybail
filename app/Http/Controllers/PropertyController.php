@@ -12,7 +12,6 @@ class PropertyController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * List all properties for the currently authenticated user.
      */
