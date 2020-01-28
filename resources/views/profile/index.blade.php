@@ -8,11 +8,12 @@
 </div>
 <div class="row">
     <div class="col-lg-3 order-lg-1 mb-4">
-        <a href="{{ route('properties.create') }}" class="btn btn-block btn-primary mb-6">
+        <a href="{{ route('profile.edit') }}" class="btn btn-block btn-primary mb-6">
             Modifier
         </a>
     </div>
-    <div class="col col-lg-9">
+    <div class="col-lg-9">
+        @include('partials.alerts')
         <div class="card">
             <div class="card-body">
                 <form>
@@ -29,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Bio</label>
-                        <textarea class="form-control" rows="5">Big belly rude boy, million dollar hustler. Unemployed.</textarea>
+                        <textarea class="form-control" rows="5"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Email-Address</label>

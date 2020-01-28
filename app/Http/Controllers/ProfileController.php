@@ -15,4 +15,11 @@ class ProfileController extends Controller
 
         return view('profile.index')->with(compact('user'));
     }
+
+    public function edit()
+    {
+        $user = auth()->user();
+
+        return view('profile.edit')->with(compact('user'));
+    }
 }

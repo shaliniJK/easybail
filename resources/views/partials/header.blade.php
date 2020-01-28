@@ -20,16 +20,9 @@
                             <i class="dropdown-icon fe fe-settings"></i> Paramètres
                         </a>
                         <a class="dropdown-item" href="#">
-                            <span class="float-right"><span class="badge badge-primary">6</span></span>
-                            <i class="dropdown-icon fe fe-mail"></i> Inbox
-                        </a>
-                        <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-send"></i> Mon Compte
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-help-circle"></i> Besoin d'aide ?
-                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="dropdown-icon fe fe-log-out"></i> Déconnexion
                         </a>
@@ -50,12 +43,14 @@
         <div class="row align-items-center">
             <div class="col-lg order-lg-first">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                    <li class="nav-item dropdown">
+                        <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"><i class="fe fe-home"></i> Accueil</a>
+                    </li>
                     <li class="nav-item">
-                        <a href="{{ route('properties') }}" class="nav-link"><i class="fe fe-box"></i> Mes Biens</a>
+                        <a href="{{ route('properties') }}" class="nav-link {{ request()->routeIs('properties*') ? 'active' : '' }}"><i class="fe fe-box"></i> Mes Biens</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="{{ route('locataires.index') }}" class="nav-link active"><i class="fe fe-file-text"></i> Mes Locataires</a>
-
+                        <a href="{{ route('locataires.index') }}" class="nav-link {{ request()->routeIs('locataires*') ? 'active' : '' }}"><i class="fe fe-file-text"></i> Mes Locataires</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="{{ route('paiement') }}" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>

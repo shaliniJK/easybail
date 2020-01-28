@@ -29,8 +29,8 @@ Route::get('/contact', function () {
 Route::get('/properties', 'PropertyController@index')->name('properties');
 Route::get('/properties/create', 'PropertyController@create')->name('properties.create');
 Route::post('/properties/create', 'PropertyController@store')->name('property.store');
-Route::get('/properties/{property}', 'PropertyController@show')->name('property');
-Route::get('/properties/{property}/edit', 'PropertyController@edit')->name('property.edit');
+Route::get('/properties/{property}', 'PropertyController@show')->name('properties.show');
+Route::get('/properties/{property}/edit', 'PropertyController@edit')->name('properties.edit');
 Route::patch('/properties/{property}/edit', 'PropertyController@update')->name('property.update');
 Route::delete('/properties/{property}', 'PropertyController@destroy')->name('property.delete');
 
@@ -46,3 +46,4 @@ Route::put('/locataires/{locataire}', 'LocataireController@update');
 
 // user profile
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
