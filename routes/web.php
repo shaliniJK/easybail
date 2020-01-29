@@ -41,8 +41,15 @@ Route::get('/locataires/{locataire}', 'LocataireController@show')->name('locatai
 Route::get('/locataires/{locataire}/edit', 'LocataireController@edit')->name('locataires.edit');
 Route::put('/locataires/{locataire}', 'LocataireController@update');
 
-//Route::get('/locataires/{locataire}/edit', 'LocataireController@edit');
-//Route::patch('/locataires/{locataire}/edit', 'LocataireController@update')->name('locataire.update');
+
+Route::get('/locations', 'LocationController@index')->name('locations.index');
+Route::post('/locations', 'LocationController@store');
+Route::get('/locations/create', 'LocationController@create')->name('locations.create');
+Route::get('/locations/{location}', 'LocationController@show')->name('locations.show');
+Route::get('/locations/{location}/edit', 'LocationController@edit')->name('locations.edit');
+Route::put('/locations/{location}', 'LocationController@update');
+
+
 
 // user profile
 Route::get('/profile', 'ProfileController@index')->name('profile');

@@ -1,101 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="wrapper">
-    <div id="page" class="container">
-
-        <h1>Créer une Location</h1>
-        <form method="POST" action="/locations">
+<div class="container">
+    <div class="row">
+        <form class="card" method="POST" action="{{ route('locataires.index') }}">
             @csrf
-            <div class="field">
-                <label for="date_signature_bail" class="label">Signature bail</label>
+            <div class="card-body">
+                <h3 class="card-title">Créer une location</h3>
+                <div class="row">
 
-                <div class="control">
-                    <input id="date_signature_bail" class="input @error('date_signature_bail') danger @enderror" type="text" name="date_signature_bail" value="{{ old('date_signature_bail')}}">
-                    @error('date_signature_bail')
-                    <p class="danger">{{$errors->first('date_signature_bail')}}</p>
-                    @enderror
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="property_id" class="form-label">id bien <span class="form-required">*</span> </label>
+                            <input type="text" class="input form-control @error('property_id') danger @enderror" placeholder="id bien" name="property_id">
+                            @error('property_id')
+                            <p class="danger">{{$errors->first('property_id')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="locataire_id" class="form-label">locataire_id<span class="form-required">*</span> </label>
+                            <input type="text" class="input form-control @error('locataire_id') danger @enderror" placeholder="locataire_id" id="locataire_id" name="locataire_id">
+                            @error('locataire_id')
+                            <p class="danger">{{$errors->first('locataire_id')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="loyer" class="form-label">loyer<span class="form-required">*</span> </label>
+                            <input type="text" class="input form-control @error('loyer') danger @enderror" placeholder="loyer" id="loyer" name="loyer">
+                            @error('loyer')
+                            <p class="danger">{{$errors->first('loyer')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="charges" class="form-label">charges <span class="form-required">*</span> </label>
+                            <input type="text" class="input form-control @error('charges') danger @enderror" placeholder="charges" id="charges" name="charges">
+                            @error('charges')
+                            <p class="danger">{{$errors->first('charges')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="preavis" class="form-label">preavis <span class="form-required">*</span> </label>
+                            <input type="text" class="input form-control @error('preavis') danger @enderror" placeholder="preavis" id="preavis" name="preavis">
+                            @error('preavis')
+                            <p class="danger">{{$errors->first('preavis')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="date_signature_bail" class="form-label">date signature bail</label>
+                            <input type="text" class="input form-control @error('date_signature_bail') danger @enderror" placeholder="date signature bail" id="date_signature_bail" name="date_signature_bail">
+                            @error('date_signature_bail')
+                            <p class="danger">{{$errors->first('date_signature_bail')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="date_entree" class="form-label">Date entree</label>
+                            <input type="text" class="input form-control @error('date_entree') danger @enderror" placeholder="Date entree" id="date_entree" name="date_entree">
+                            @error('date_entree')
+                            <p class="danger">{{$errors->first('date_entree')}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="field">
-                <label for="date_entree" class="label">Entree</label>
-
-                <div class="control">
-                    <input id="date_entree" class="input @error('date_entree') danger @enderror" type="text" name="date_entree" value="{{ old('date_entree')}}">
-                    @error('date_entree')
-                    <p class="danger">{{$errors->first('date_entree')}}</p>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="duree" class="label">Duree de location</label>
-
-                <div class="control">
-                    <input id="duree" class="input @error('duree') danger @enderror" type="duree" name="duree" value="{{ old('duree')}}">
-                    @error('duree')
-                    <p class="danger">{{$errors->first('duree')}}</p>
-                    @enderror
-                </div>
-            </div>
-
-
-
-            <div class="field">
-                <label for="loyer" class="label">loyer</label>
-
-                <div class="control">
-                    <input id="loyer" class="input @error('loyer') danger @enderror" type="text" name="loyer" value="{{ old('loyer') }}">
-                    @error('loyer')
-                    <p class="danger">{{$errors->first('loyer')}}</p>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="charges" class="label">charges</label>
-
-                <div class="control">
-                    <input id="charges" class="input @error('charges') danger @enderror" type="text" name="charges" value="{{ old('charges') }}">
-                    @error('charges')
-                    <p class="danger">{{$errors->first('charges')}}</p>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="delai_preavis" class="label">delai preavis</label>
-
-                <div class="control">
-                    <input id="delai_preavis" class="input @error('delai_preavis') danger @enderror" type="text" name="delai_preavis" value="{{ old('delai_preavis') }}">
-                    @error('delai_preavis')
-                    <p class="danger">{{$errors->first('delai_preavis')}}</p>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="depot_garantit" class="label">depot_garantit</label>
-
-                <div class="control">
-                    <input id="depot_garantit" class="input @error('depot_garantit') danger @enderror" type="text" name="depot_garantit" value="{{ old('depot_garantit') }}">
-                    @error('depot_garantit')
-                    <p class="danger">{{$errors->first('depot_garantit')}}</p>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="btn btn-primary">
-                        Enregistrer
-                    </button>
-                </div>
+            <div class="card-footer text-right">
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
             </div>
         </form>
-
-
     </div>
 </div>
 
