@@ -33,7 +33,8 @@
                             @foreach($locataires as $locataire)
                             <tr>
                                 <td><a href="{{ $locataire->path() }}" class="collection-item">{{ $locataire->last_name }} {{ $locataire->first_name }}</a></td>
-                                <td class="d-none d-sm-table-cell">Appartement xxx</td>
+                                <td class="d-none d-sm-table-cell">{{ $locataire->property_id }}</td>
+                                <td class="d-none d-sm-table-cell">{{ $property}}</td>
                             </tr>
                             @endforeach
                         </table>

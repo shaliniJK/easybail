@@ -16,6 +16,7 @@ class CreateLocatairesTable extends Migration
         Schema::create('locataires', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('property_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address');
@@ -29,6 +30,11 @@ class CreateLocatairesTable extends Migration
             $table->string('phone_number');
             $table->string('idcard_number');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

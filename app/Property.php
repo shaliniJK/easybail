@@ -27,11 +27,11 @@ class Property extends Model
      */
     public function fullAddress(): string
     {
-        return $this->address.', '.$this->postcode.' '.$this->city;
+        return $this->address . ', ' . $this->postcode . ' ' . $this->city;
     }
 
     public function designation(): string
     {
-        return $this->propertyType->type.' à '.$this->city;
+        return $this->propertyType->type . ' à ' . $this->city;
     }
 }

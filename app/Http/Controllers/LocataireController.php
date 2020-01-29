@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Locataire;
+use App\Property;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -18,8 +19,10 @@ class LocataireController extends Controller
     public function index()
     {
         $user = auth()->user();
+        $properties = $user->properties;
         $locataires = Locataire::latest()->get();
-        return view('locataires.index')->with(compact('user', 'locataires'));
+        $property = Property::find(1)->address;
+        return view('locataires.index')->with(compact('user', 'properties', 'property', 'locataires'));
     }
 
     // show a single ressource

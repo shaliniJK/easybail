@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Locataire::class, function (Faker $faker) {
     return [
         'user_id' => factory(App\User::class),
+        'property_id' => factory(App\Property::class),
         'first_name' => $faker->firstName(),
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,

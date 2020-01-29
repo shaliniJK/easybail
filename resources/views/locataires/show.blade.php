@@ -10,10 +10,7 @@
 
             <form class="card" method="POST" action="/locataires/{{ $locataire->id}}/edit ">
                 @csrf
-
-
                 <div class="card">
-
                     <div class="card-header">
                         <h3 class="card-title">{{ $locataire-> first_name }} {{ old('last_name') ?? $locataire-> last_name }}</h3>
                     </div>
