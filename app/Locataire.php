@@ -19,4 +19,9 @@ class Locataire extends Model
     {
         return route('locataires.show', $this);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

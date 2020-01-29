@@ -67,8 +67,13 @@ class LocataireController extends Controller
             'address' => 'required',
             'postalcode' => 'required',
             'city' => 'required',
+            'country' => 'required',
             'email' => 'required',
+            'birth_date' => 'required',
+            'place_of_birth' => 'required',
             'nationality' => 'required',
+            'phone_number' => 'required',
+            'idcard_number' => 'required',
         ]);
     }
 
