@@ -106,3 +106,23 @@ php artisan db:seed --class=PropertyTypesTableSeeder
 ```bash
 php artisan migrate:rollback
 ```
+
+
+
+```bash
+php artisan migrate:fresh
+php artisan tinker
+
+>>> factory(App\User::class)->create();
+
+>>> factory(App\Property::class,3)->create(['user_id'=> 1]);
+
+>>> factory(App\Locataire::class)->create(['user_id' => 1, 'property_id' => 1] );
+
+>>> factory(App\Locataire::class)->create(['user_id' => 1, 'property_id' => 2] );
+
+>>> factory(App\Locataire::class)->create(['user_id' => 1, 'property_id' => 3] );
+
+>>> factory(App\Location::class)->create(['user_id' => 1, 'property_id' => 1, 'locataire_id' => 1] );
+```
+
