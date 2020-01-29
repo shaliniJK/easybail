@@ -17,7 +17,7 @@ class CreatePropertiesTable extends Migration
             $table->string('address');
             $table->string('address2')->nullable();
             $table->string('city');
-            $table->integer('postcode');
+            $table->string('postcode');
             $table->string('country');
             $table->integer('nb_rooms');
             $table->integer('size')->nullable();

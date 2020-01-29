@@ -28,7 +28,8 @@ class LocataireController extends Controller
     // show a single ressource
     public function show(Locataire $locataire)
     {
-        return view('locataires.show', ['user' => auth()->user(), 'locataire' => $locataire]);
+        $property = Property::find($locataire->property_id);
+        return view('locataires.show', ['user' => auth()->user(), 'locataire' => $locataire, 'property' => $property]);
     }
 
 

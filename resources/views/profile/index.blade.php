@@ -24,23 +24,23 @@
                         <div class="col">
                             <div class="form-group">
                                 <label class="form-label">Email-Address</label>
-                                <input class="form-control" placeholder="your-email@domain.com">
+                                <input class="form-control" placeholder={{ $user-> email}}>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Bio</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <label class="form-label">Nom</label>
+                        <input class="form-control" placeholder={{ $user-> last_name}}>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Email-Address</label>
-                        <input class="form-control" placeholder="your-email@domain.com">
+                        <label class="form-label">Prenom</label>
+                        <input class="form-control" placeholder={{ $user-> first_name}}>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control" value="password">
+                        <input type="password" class="form-control" value="{{ $user-> password}}>
                     </div>
-                    <div class="form-footer">
+                    <div class=" form-footer">
                         <button class="btn btn-primary btn-block">Save</button>
                     </div>
                 </form>

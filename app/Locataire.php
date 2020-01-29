@@ -27,6 +27,6 @@ class Locataire extends Model
 
     public function property()
     {
-        return $this->hasOne(Property::class, 'property_id');
+        return $this->hasMany(Property::class, 'property_id');
     }
 }

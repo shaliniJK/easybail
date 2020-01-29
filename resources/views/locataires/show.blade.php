@@ -18,6 +18,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label class="form-label">logement</label>
+                                    <input class="form-control" placeholder={{ $property->address}} disabled="" value={{  $property->address }} />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <label class="form-label">adresse email</label>
                                     <input class="form-control" placeholder={{ $locataire-> email }} disabled="" value={{ old('email') ?? $locataire-> email }} />
                                 </div>
