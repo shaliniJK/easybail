@@ -15,6 +15,9 @@ class CreatePaiementsTable extends Migration
     {
         Schema::create('paiements', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('location_id');
+            $table->string('mois');
+            $table->boolean('reception')->default(false);
             $table->timestamps();
         });
     }

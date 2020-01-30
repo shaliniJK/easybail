@@ -49,6 +49,13 @@ Route::get('/locations/{location}', 'LocationController@show')->name('locations.
 Route::get('/locations/{location}/edit', 'LocationController@edit')->name('locations.edit');
 Route::put('/locations/{location}', 'LocationController@update');
 
+Route::get('/paiements', 'PaiementController@index')->name('paiements.index');
+Route::post('/paiements', 'PaiementController@store');
+Route::get('/paiements/create', 'PaiementController@create')->name('paiements.create');
+Route::get('/paiements/{paiement}', 'PaiementController@show')->name('paiements.show');
+Route::get('/paiements/{paiement}/edit', 'PaiementController@edit')->name('paiements.edit');
+Route::put('/paiements/{paiement}', 'PaiementController@update');
+
 
 
 // user profile

@@ -16,7 +16,7 @@
                                 <div class="form-label">Etat</div>
                                 <div class="selectgroup w-100">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="value" value="validate" class="selectgroup-input" checked>
+                                        <input type="radio" name="value" value="validate" class="selectgroup-input">
                                         <span class="selectgroup-button">Valider</span>
                                     </label>
                                     <label class="selectgroup-item">
@@ -28,8 +28,9 @@
                             <div class="form-group">
                                 <div class="form-label">Bien</div>
                                 <select class="custom-select form-control">
-                                    <option value="">Appt x</option>
-                                    <option value="">Appt y</option>
+                                    @foreach($properties as $property)
+                                    <option value="">{{ $property-> address}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -51,7 +52,7 @@
                                 <th>
                                 </th>
                                 <td>Recu</td>
-                                <td class="d-none d-sm-table-cell">xxxxxxxxxx</td>
+                                <td class="d-none d-sm-table-cell">{{ $paiements}}</td>
                                 <td class="d-none d-md-table-cell">$1616.70</td>
                             </tr>
                             <tr>

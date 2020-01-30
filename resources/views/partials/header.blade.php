@@ -53,10 +53,10 @@
                         <a href="{{ route('locataires.index') }}" class="nav-link {{ request()->routeIs('locataires*') ? 'active' : '' }}"><i class="fe fe-file-text"></i> Mes Locataires</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="{{ route('paiement') }}" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
+                        <a href="{{ route('paiements.index') }}" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
                     </li>
                     <li class="nav-item">
-                        <a href="./gallery.html" class="nav-link"><i class="fe fe-message-circle"></i> Messagerie</a>
+                        <a href="{{ route('locations.index') }}" class="nav-link"><i class="fe fe-message-circle"></i> Mes locations</a>
                     </li>
 
                 </ul>
