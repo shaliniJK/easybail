@@ -28,4 +28,9 @@ class Locataire extends Model
     {
         return $this->hasMany(Location::class);
     }
+
+    public function fullName(): string
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
 }

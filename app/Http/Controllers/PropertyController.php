@@ -31,9 +31,11 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        $locataires = $property->locations()->get()->map(function ($location) {
-            return $location->locataire()->get();
-        });
+        $locataires = $property->locations()->get()
+            ->map(function ($location) {
+                return $location->locataire()->get();
+            })
+            ->flatten();
 
         return view('properties.show', [
             'user' => auth()->user(),

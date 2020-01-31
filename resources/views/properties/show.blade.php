@@ -49,25 +49,27 @@
             <div class="card-footer pt-1">
                 @if ($property->locations()->exists())
                 <div class="row">
-                    <div class="card-body">
+                    <div class="col-8 card-body">
                         <h5 class="card-title">Locataires courants</h5>
                     </div>
-                    <table class="table card-table">
+                    <div class="col-8">
+                        <table class="table card-table ">
                         <tbody>
                             @foreach ($locataires as $locataire)
                             <tr>
                                 <td>
-                                    <strong>Dave Gamache</strong>
+                                    <strong>{{ $locataire->fullName() }}</strong>
                                 </td>
                                 <td class="align-middle" width="1">
-                                    <button class="btn btn-outline-primary btn-sm">
+                                    <a href="{{ route('locataires.show', $locataire->id) }}" class="btn btn-outline-primary btn-sm">
                                         <span class="fa fa-user"></span> Voir
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
                 @else
                 <div class="row">
