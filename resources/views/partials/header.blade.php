@@ -56,7 +56,7 @@
                         <a href="{{ route('paiements.index') }}" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('locations.index') }}" class="nav-link"><i class="fe fe-message-circle"></i> Mes locations</a>
+                        <a href="{{ route('locations.index') }}" class="nav-link"><i class="fe fe-message-circle"></i> Mes Locations</a>
                     </li>
 
                 </ul>

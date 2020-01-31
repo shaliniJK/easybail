@@ -14,7 +14,7 @@
         </a>
         <!-- Getting started -->
         <div class="list-group list-group-transparent mb-0">
-            <a href="../docs/index.html" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Tous mes Biens</a>
+            <a href="{{ route('properties') }}" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Tous mes Biens</a>
         </div>
         <!-- Components -->
         <div class="list-group list-group-transparent mb-0">
@@ -37,7 +37,6 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        Locataire 1
                         <p>{{ $property->address }}</p>
                     </div>
                 </div>

@@ -36,10 +36,6 @@
                         <label class="form-label">Prenom</label>
                         <input class="form-control" placeholder={{ $user-> first_name}}>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" value="{{ $user-> password}}>
-                    </div>
                     <div class=" form-footer">
                         <button class="btn btn-primary btn-block">Save</button>
                     </div>

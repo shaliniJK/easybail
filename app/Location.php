@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-
     protected $guarded = [];
 
     public function path()
@@ -21,6 +20,11 @@ class Location extends Model
 
     public function property()
     {
-        return $this->hasOne(Property::class, 'property_id');
+        return $this->belongsTo(Property::class, 'property_id');
+    }
+
+    public function locataire()
+    {
+        return $this->belongsTo(Locataire::class, 'locataire_id');
     }
 }

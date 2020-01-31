@@ -9,12 +9,6 @@ class Locataire extends Model
     //protected $fillable = ['first_name', 'last_name', 'email'];
     protected $guarded = [];
 
-
-    //public function user()
-    //{
-    //    return $this->hasOne(User::class);
-    //}
-
     public function path()
     {
         return route('locataires.show', $this);
@@ -27,6 +21,11 @@ class Locataire extends Model
 
     public function property()
     {
-        return $this->hasMany(Property::class, 'property_id');
+        return $this->belongsToMany(Property::class, 'property_id');
+    }
+
+    public function location()
+    {
+        return $this->hasMany(Location::class);
     }
 }

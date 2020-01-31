@@ -12,6 +12,7 @@ class PropertyController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * List all properties for the currently authenticated user.
      */
@@ -30,9 +31,14 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        $locataires = $property->locations()->get()->map(function ($location) {
+            return $location->locataire()->get();
+        });
+
         return view('properties.show', [
             'user' => auth()->user(),
             'property' => $property,
+            'locataires' => $locataires,
         ]);
     }
 
@@ -102,7 +108,6 @@ class PropertyController extends Controller
     protected function validateProperty()
     {
         return request()->validate([
-            'name' => 'string|nullable',
             'address' => 'string|required',
             'address2' => 'string|nullable',
             'city' => 'string|required',

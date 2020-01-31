@@ -8,8 +8,6 @@ class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -30,13 +28,20 @@ class CreateLocationsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+
+            $table->foreign('property_id')
+                ->references('id')
+                ->on('properties')
+                ->onDelete('cascade');
+
+            $table->foreign('locataire_id')
+                ->references('id')
+                ->on('locataires');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

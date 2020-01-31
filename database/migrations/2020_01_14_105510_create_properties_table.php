@@ -13,14 +13,13 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
             $table->string('address');
             $table->string('address2')->nullable();
             $table->string('city');
             $table->string('postcode');
             $table->string('country');
             $table->integer('nb_rooms');
-            $table->integer('size')->nullable();
+            $table->integer('size');
             $table->boolean('furnished')->default(false);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

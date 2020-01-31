@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Location;
 use App\Locataire;
 use App\Property;
-
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -21,6 +20,7 @@ class LocationController extends Controller
         $properties = $user->properties;
         $locations = Location::latest()->get();
         $locataires = Locataire::latest()->get();
+
         return view('locations.index')->with(compact('user', 'properties', 'locataires', 'locations'));
     }
 
@@ -29,6 +29,7 @@ class LocationController extends Controller
     {
         $property = Property::find($location->property_id);
         $locataire = Locataire::find($location->locataire_id);
+
         return view('locations.show', ['user' => auth()->user(), 'property' => $property, 'locataire' => $locataire, 'location' => $location]);
     }
 
@@ -43,9 +44,9 @@ class LocationController extends Controller
     {
         $location = $this->validateLocation();
         Location::create($location);
+
         return redirect(route('locations.index'))->with('success', 'Votre location a bien été ajouté !');
     }
-
 
     // Show a view to edit
     public function edit(Location $location)
@@ -59,6 +60,7 @@ class LocationController extends Controller
     public function update(Location $location)
     {
         $location->update($this->validateLocation());
+
         return redirect($location->path());
     }
 
@@ -77,6 +79,5 @@ class LocationController extends Controller
     // delete
     public function destroy($id)
     {
-        //
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    protected $fillable = ['name', 'address', 'address2', 'city', 'postcode', 'country', 'nb_rooms', 'size', 'furnished', 'property_type_id'];
+    protected $fillable = ['address', 'address2', 'city', 'postcode', 'country', 'nb_rooms', 'size', 'furnished', 'property_type_id'];
 
     protected $with = ['propertyType'];
 
@@ -20,6 +20,11 @@ class Property extends Model
         return $this->belongsTo(PropertyType::class);
     }
 
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
     /**
      * Returns the full address of this property.
      *
@@ -27,11 +32,11 @@ class Property extends Model
      */
     public function fullAddress(): string
     {
-        return $this->address . ', ' . $this->postcode . ' ' . $this->city;
+        return $this->address.', '.$this->postcode.' '.$this->city;
     }
 
     public function designation(): string
     {
-        return $this->propertyType->type . ' à ' . $this->city;
+        return $this->propertyType->type.' à '.$this->city;
     }
 }

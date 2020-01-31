@@ -26,17 +26,6 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-3 col-md-6">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nom du Bien</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $property->name }}" autocomplete="name" autofocus>
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group">
                             <div class="form-label">Bien meublé ou non-meublé <span class="form-required">*</span></div>
