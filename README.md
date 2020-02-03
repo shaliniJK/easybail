@@ -76,7 +76,6 @@ Si une ou plusieurs classes sont introuvables :
 composer dump-autoload
 ```
 
-
 ## pour toute modif css
 
 ```bash
@@ -99,6 +98,9 @@ php artisan migrate:fresh
 
 ```bash
 php artisan db:seed --class=PropertyTypesTableSeeder
+php artisan db:seed --class=BailTypesTableSeeder
+php artisan db:seed --class=AttributesTableSeeder
+
 ```
 
 ## pour retourner en arrière, à la dernière migration
@@ -106,8 +108,6 @@ php artisan db:seed --class=PropertyTypesTableSeeder
 ```bash
 php artisan migrate:rollback
 ```
-
-
 
 ```bash
 php artisan migrate:fresh
@@ -125,4 +125,3 @@ php artisan tinker
 
 >>> factory(App\Location::class)->create(['user_id' => 1, 'property_id' => 1, 'locataire_id' => 1] );
 ```
-
