@@ -71,20 +71,20 @@
                     </div>
                     <div class="col-8">
                         <table class="table card-table ">
-                            {{-- <tbody>
-                                @foreach ($locataires as $locataire)
+                            <tbody>
+                                @foreach ($locataire->location as $location)
                                 <tr>
                                     <td>
-                                        <strong>{{ $locataire->fullName() }}</strong>
+                                        <strong>{{ $location->property->designation() }}</strong>
                                     </td>
                                     <td class="align-middle" width="1">
-                                        <a href="{{ route('locataires.show', $locataire->id) }}" class="btn btn-outline-primary btn-sm">
+                                        <a href="{{ route('locations.show', $location->id) }}" class="btn btn-outline-primary btn-sm">
                                             <span class="fa fa-user"></span> Voir
                                         </a>
                                     </td>
                                 </tr>
                                 @endforeach
-                            </tbody> --}}
+                            </tbody>
                         </table>
                     </div>
                 </div>
