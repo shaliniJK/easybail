@@ -29,14 +29,19 @@
             </div>
             <div class="card-body">
                 <div class="media mb-5">
-                    <div class="media-body">
-                        <address class="text-muted mb-1">{{ $location->property->address }} </address>
+                    <div class="media-body row">
+                        <div class="col-6">
+                            <address class="text-muted mb-1">{{ $location->property->address }} </address>
                         <address class="text-muted mb-1">
                             {{ $location->property->city .', '. $location->property->postcode }}
                         </address>
                         <address class="text-muted">
                             {{( $location->property->address2 ? $location->property->address2.', ' : ''). $location->property->country }}
                         </address>
+                        </div>
+                        <div class="col-6">
+                            <div class="h6">{{ $location->bailType->type }}</div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

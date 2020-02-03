@@ -18,12 +18,7 @@ class PropertyTypesTableSeeder extends Seeder
             ['type' => 'Maison'],
             ['type' => 'Appartement'],
             ['type' => 'Commerce'],
-            ['type' => 'Terrain'],
-            ['type' => 'Propriété'],
             ['type' => 'Bureau'],
-            ['type' => 'Immeuble'],
-            ['type' => 'Parking'],
-            ['type' => 'Château'],
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

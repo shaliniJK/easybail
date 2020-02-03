@@ -16,6 +16,7 @@ class CreateLocationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('property_id');
             $table->unsignedBigInteger('locataire_id');
+            $table->unsignedBigInteger('bail_type_id');
             $table->string('loyer');
             $table->string('charges');
             $table->string('preavis');
@@ -36,6 +37,10 @@ class CreateLocationsTable extends Migration
             $table->foreign('locataire_id')
                 ->references('id')
                 ->on('locataires');
+
+            $table->foreign('bail_type_id')
+                ->references('id')
+                ->on('bail_types');
         });
     }
 

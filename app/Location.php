@@ -8,7 +8,7 @@ class Location extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['property', 'locataire'];
+    protected $with = ['property', 'locataire', 'bailType'];
 
     public function path()
     {
@@ -28,6 +28,11 @@ class Location extends Model
     public function locataire()
     {
         return $this->belongsTo(Locataire::class, 'locataire_id');
+    }
+
+    public function bailType()
+    {
+        return $this->belongsTo(BailType::class, 'bail_type_id');
     }
 
     public function description()

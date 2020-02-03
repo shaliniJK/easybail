@@ -56,6 +56,25 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="bail_type_id" class="form-label">Type de bail <span class="form-required">*</span></label>
+
+                                <select name="bail_type_id" id="select-type" class="form-control custom-select @error('bail_type_id') is-invalid @enderror">
+                                    <option>Choisir le type be bail</option>
+                                    @foreach ($bail_types as $bail_type)
+                                    <option value="{{$bail_type->id}}" {{ old('bail_type_id') == $bail_type->id ? 'selected' : '' }}>{{ $bail_type->type }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('bail_type_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-sm-6 col-md-4">
                             <div class="form-group">
                                 <label for="loyer" class="form-label">Loyer<span class="form-required">*</span> </label>

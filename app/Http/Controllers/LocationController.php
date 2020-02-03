@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BailType;
 use App\Location;
 use App\Locataire;
 use App\Property;
@@ -44,6 +45,7 @@ class LocationController extends Controller
             'user' => $user,
             'properties' => $user->properties,
             'locataires' => $user->locataires,
+            'bail_types' => BailType::all(),
         ]);
     }
 
@@ -67,10 +69,14 @@ class LocationController extends Controller
     public function edit(Location $location)
     {
         $this->checkUserAuthorization($location);
+        $user = auth()->user();
 
         return view('locations.edit', [
-            'user' => auth()->user(),
+            'user' => $user,
             'location' => $location,
+            'properties' => $user->properties,
+            'locataires' => $user->locataires,
+            'bail_types' => BailType::all(),
         ]);
     }
 
@@ -78,9 +84,23 @@ class LocationController extends Controller
     {
         $this->checkUserAuthorization($location);
 
-        $location->update($this->validateLocation());
+        $updatedlocation = request()->validate([
+            'bail_type_id' => 'required|exists:bail_types,id',
+            'loyer' => 'required',
+            'charges' => 'required',
+            'preavis' => 'required',
+            'date_signature_bail' => 'required|date',
+            'date_entree' => 'required|date',
+        ]);
 
-        return redirect($location->path());
+        $updatedlocation['property_id'] = $location['property_id'];
+        $updatedlocation['locataire_id'] = $location['locataire_id'];
+
+        $user = request()->user();
+
+        $user->locations()->update($updatedlocation, ['id' => $location->id]);
+
+        return redirect(route('locations.index'))->with('success', 'Votre location a bien été modifié !');
     }
 
     protected function validateLocation()
@@ -88,6 +108,7 @@ class LocationController extends Controller
         return request()->validate([
             'property_id' => 'required|exists:properties,id',
             'locataire_id' => 'required|exists:locataires,id',
+            'bail_type_id' => 'required|exists:bail_types,id',
             'loyer' => 'required',
             'charges' => 'required',
             'preavis' => 'required',
