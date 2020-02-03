@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <form class="card" method="POST" action="{{ route('locataires.index') }}">
+        <form class="card" method="POST" action="{{ route('locataires.store') }}">
             @csrf
             <div class="card-body">
                 <h3 class="card-title">Créer un Locataire</h3>
@@ -67,7 +67,7 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group">
                             <label for="postcode" class="form-label">Code postal</label>
-                            <input type="number" class="input form-control @error('postalcode') is-invalid @enderror" placeholder="code postale" id="postcode" name="postalcode" value="{{ old('postalcode') }}">
+                            <input type="text" class="input form-control @error('postalcode') is-invalid @enderror" placeholder="code postale" id="postcode" name="postalcode" value="{{ old('postalcode') }}">
                             @error('postalcode')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -77,16 +77,19 @@
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group">
-                            <label class="form-label">Pays</label>
-                            <select class="form-control custom-select">
-                                <option value="">France</option>
-                            </select>
+                            <label for="country" class="form-label">Pays</label>
+                            <input name="country" id="country" type="text" class="form-control @error('country') is-invalid @enderror" placeholder="Pays" value="{{ old('country') }}" required>
+                            @error('country')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group">
                             <label for="birth_date" class="form-label">Date de naissance</label>
-                            <input type="text" class="input form-control @error('birth_date') is-invalid @enderror" placeholder="Date de naissance" id="birth_date" name="birth_date" value="{{ old('birth_date') }}">
+                            <input type="date" class="input form-control @error('birth_date') is-invalid @enderror" placeholder="Date de naissance" id="birth_date" name="birth_date" value="{{ old('birth_date') }}">
                             @error('birth_date')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

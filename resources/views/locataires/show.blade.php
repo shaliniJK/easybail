@@ -2,106 +2,131 @@
 
 @section('content')
 
-<div class="container">
+<div class="row">
+    <div class="col-lg-3 order-lg-1 mb-4">
+        <a href="{{ route('locations.create') }}" class="btn btn-block btn-primary mb-6">
+            Associer à une location
+        </a>
+        <div class="list-group list-group-transparent mb-0">
+            <a href="{{ route('locataires.edit', $locataire->id) }}" class="list-group-item list-group-item-action">
+                <span class="icon mr-3"><i class="fe fe-edit-2"></i></span>Modifier ce locataire
+            </a>
+        </div>
+        <button type="button" class="btn btn-danger w-100 d-block mt-4" data-toggle="modal" data-target="#modal-delete-locataire">
+            <span class="icon mr-3"><i class="fe fe-trash-2 text-white"></i></span>Supprimer
+        </button>
+    </div>
+    <div class="col-lg-9">
+        @include('partials.alerts')
 
-    <div class="page">
-        <div class="page-main">
-            @include('partials.alerts')
-
-            <form class="card" method="POST" action="/locataires/{{ $locataire->id}}/edit ">
-                @csrf
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">{{ $locataire-> first_name }} {{ old('last_name') ?? $locataire-> last_name }}</h3>
+        <div class="card w-100">
+            <div class="card-status bg-blue"></div>
+            <div class="card-header">
+                <h3 class="card-title">{{ $locataire->fullName() }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="media mb-5">
+                    <div class="media-body">
+                        <address class="text-muted mb-1">{{ $locataire->address }} </address>
+                        <address class="text-muted mb-1">
+                            {{ $locataire->city .', '. $locataire->postcode }}
+                        </address>
+                        <address class="text-muted">
+                            {{ $locataire->country }}
+                        </address>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="h6">Numéro de téléphone</div>
+                        <p>{{ $locataire->phone_number }}</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="h6">Email</div>
+                        <p>{{ $locataire->email }}</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="h6">Numéro de carte identité</div>
+                        <p>{{ $locataire->idcard_number }}</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="h6">Nationalité</div>
+                        <p>{{ $locataire->nationality }}</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="h6">Date naissance</div>
+                        <p>{{ $locataire->birth_date }}</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="h6">Lieu de naissance</div>
+                        <p>{{ $locataire->place_of_birth }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer pt-1">
+                @if ($locataire->location()->exists())
+                <div class="row">
+                    <div class="col-8 card-body">
+                        <h5 class="card-title">Locations</h5>
+                    </div>
+                    <div class="col-8">
+                        <table class="table card-table ">
+                            {{-- <tbody>
+                                @foreach ($locataires as $locataire)
+                                <tr>
+                                    <td>
+                                        <strong>{{ $locataire->fullName() }}</strong>
+                                    </td>
+                                    <td class="align-middle" width="1">
+                                        <a href="{{ route('locataires.show', $locataire->id) }}" class="btn btn-outline-primary btn-sm">
+                                            <span class="fa fa-user"></span> Voir
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody> --}}
+                        </table>
+                    </div>
+                </div>
+                @else
+                <div class="row">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="form-label">logement</label>
-                                    <input class="form-control" placeholder={{ $property->address}} disabled="" value={{  $property->address }} />
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="form-label">adresse email</label>
-                                    <input class="form-control" placeholder={{ $locataire-> email }} disabled="" value={{ old('email') ?? $locataire-> email }} />
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="form-label">adresse</label>
-                                    <input class="form-control" placeholder={{ $locataire-> address }} disabled="" value={{ old('address') ?? $locataire-> address }} />
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-
-                                <div class="form-group">
-                                    <label class="form-label">code postal</label>
-                                    <input class="form-control" placeholder={{ $locataire->postalcode }} disabled="" value={{ old('postalcode') ?? $locataire-> postalcode }} />
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">ville</label>
-                                    <input class="form-control" placeholder={{ $locataire->city }} disabled="" value={{ old('city') ?? $locataire-> city }} />
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">pays</label>
-                                    <input class="form-control" placeholder={{ $locataire->country }} disabled="" value={{ old('country') ?? $locataire-> country }} />
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">date de naissance</label>
-                                    <input class="form-control" placeholder={{ $locataire->birth_date }} disabled="" value={{ old('birth_date') ?? $locataire-> birth_date }} />
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">lieu de naissance</label>
-                                    <input class="form-control" placeholder={{ $locataire->place_of_birth }} disabled="" value={{ old('place_of_birth') ?? $locataire-> place_of_birth }} />
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-label">nationalité</label>
-                                    <input class="form-control" placeholder={{ $locataire->nationality }} disabled="" value={{ old('nationality') ?? $locataire-> nationality }} />
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">numéro de télèphone</label>
-                                    <input class="form-control" placeholder={{ $locataire->phone_number }} disabled="" value={{ old('phone_number') ?? $locataire-> phone_number }} />
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">numéro de carte d'identité</label>
-                                    <input class="form-control" placeholder={{ $locataire->idcard_number }} disabled="" value={{ old('idcard_number') ?? $locataire-> idcard_number }} />
-                                </div>
-                            </div>
-
-                            <div class="form-footer">
-                                <button type="submit" class="btn btn-primary btn-block">Modifier</button>
-                            </div>
-            </form>
+                        <p><span class="icon mr-3"><i class="fe fe-alert-triangle text-info"></i></span> Ce locataire n'est pas actuellement associé à aucune location.</p>
+                        <a href="{{ route('locations.create') }}" class="btn btn-outline-primary">
+                            Créer une nouvelle location
+                        </a>
+                    </div>
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>
-</div>
-</div>
 
 
+{{-- Modal delete locataire --}}
 
-
-<div class="card-action">
-    <a href=" /locataires/{{ $locataire->id}}/edit ">Modifier</a>
-
+<div id="modal-delete-locataire" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger">Attention ! Cet action est irréversible !</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Voulez vous vraiment supprimer ce locataire ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-locataire-form').submit();">Supprimer</button>
+            </div>
+            <form action="{{ route('locataires.delete', $locataire->id) }}" id="delete-locataire-form" method="POST" style="display: none;">
+                @csrf
+                @method('DELETE')
+            </form>
+        </div>
+    </div>
 </div>
 
 @endsection

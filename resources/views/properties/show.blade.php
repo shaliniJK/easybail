@@ -75,8 +75,8 @@
                 <div class="row">
                     <div class="card-body">
                         <p><span class="icon mr-3"><i class="fe fe-alert-triangle text-info"></i></span> Ce bien n'est pas actuellement en location.</p>
-                        <a href="{{ route('properties.create') }}" class="btn btn-outline-primary">
-                            Ajouter un nouveau locataire
+                        <a href="{{ route('locations.create') }}" class="btn btn-outline-primary">
+                            Créer une nouvelle location
                         </a>
                     </div>
                 </div>

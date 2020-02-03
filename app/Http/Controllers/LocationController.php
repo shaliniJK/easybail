@@ -18,8 +18,8 @@ class LocationController extends Controller
     {
         $user = auth()->user();
         $properties = $user->properties;
-        $locations = Location::latest()->get();
-        $locataires = Locataire::latest()->get();
+        $locations = $user->locations;
+        $locataires = $user->locataires;
 
         return view('locations.index')->with(compact('user', 'properties', 'locataires', 'locations'));
     }
@@ -43,6 +43,7 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $location = $this->validateLocation();
+
         Location::create($location);
 
         return redirect(route('locations.index'))->with('success', 'Votre location a bien été ajouté !');

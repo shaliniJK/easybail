@@ -13,9 +13,8 @@
                         <div class="form-group">
                             <label class="form-label">Type de bien <span class="form-required">*</span></label>
                             <select name="property_type_id" id="select-type" class="form-control custom-select @error('property_type_id') is-invalid @enderror">
-                                <option>Choisir le type de bien</option>
                                 @foreach ($types as $type)
-                                <option value="{{$type->id}}" {{ old('property_type_id') === $type->id ? 'selected' : '' }}>{{$type->type}}</option>
+                                <option value="{{$type->id}}" {{ old('property_type_id', request()->type) == $type->id ? 'selected' : '' }}>{{$type->type}}</option>
                                 @endforeach
                             </select>
                             @error('property_type_id')
@@ -25,51 +24,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group">
-                            <div class="form-label">Bien meublé ou non-meublé <span class="form-required">*</span></div>
-                            <div class="custom-controls-stacked form-control @error('furnished') is-invalid @enderror">
-                                <label class="custom-control custom-radio custom-control-inline ">
-                                    <input type="radio" class="custom-control-input" name="furnished" value="1"
-                                    {{ old('furnished') === '1' ? 'checked' : ''}}>
-                                    <span class="custom-control-label">Meublé</span>
-                                </label>
-                                <label class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input" name="furnished" value="0"
-                                    {{ old('furnished') === '0' ? 'checked' : ''}}>
-                                    <span class="custom-control-label">Non-meublé</span>
-                                </label>
-                            </div>
-                            @error('furnished')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
 
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group">
-                            <label for="nb_rooms" class="form-label">Nombre de chambres <span class="form-required">*</span></label>
-                            <input name="nb_rooms" type="number" required class="form-control @error('nb_rooms') is-invalid @enderror" placeholder="Nombre de chambres" value="{{ old('nb_rooms') }}">
-                            @error('nb_rooms')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group">
-                            <label for="size" class="form-label">Taille en m2</label>
-                            <input name="size" type="number" class="form-control @error('size') is-invalid @enderror" placeholder="Taille" value="{{ old('size') }}">
-                            @error('size')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
                     <div class="col-sm-5">
                         <div class="form-group">
                             <label for="address" class="form-label">Address <span class="form-required">*</span></label>
@@ -125,6 +80,85 @@
                             @enderror
                         </div>
                     </div>
+                    @foreach($attributes as $attribute)
+                        @if(config("attributes.{$attribute->name}") !== null)
+                        <div class="col-sm-6 col-md-4">
+                            @if(config("attributes.{$attribute->name}.type") === 'radio')
+                            <div class="form-group">
+                                <div class="form-label">{{ $attribute->display_name }}</div>
+                            </div>
+                            <div class="custom-controls-stacked form-control @error($attribute->name) is-invalid @enderror">
+                                @foreach(config("attributes.{$attribute->name}.options") as $option => $value)
+                                    <label class="custom-control custom-radio custom-control-inline ">
+                                        <input type="radio" class="custom-control-input" name="{{ $attribute->name }}" value="{{ $value }}"
+                                        {{ old($attribute->name) === $value ? 'checked' : ''}}>
+                                        <span class="custom-control-label">{{ $option }}</span>
+                                    </label>
+                                @endforeach
+                            </div>
+                            @elseif(config("attributes.{$attribute->name}.type") === 'number')
+                                <div class="form-group">
+                                    <label for="{{ $attribute->name }}" class="form-label">{{ $attribute->display_name }}
+                                        @if ($attribute->is_mandatory)
+                                            <span class="form-required">*</span>
+                                        @endif
+                                    </label>
+                                    <input name="{{ $attribute->name }}" type="number" required class="form-control @error($attribute->name) is-invalid @enderror" value="{{ old($attribute->name) }}">
+                                    @error($attribute->name)
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            @endif
+                        </div>
+                        @endif
+                    @endforeach
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <div class="form-label">Bien meublé ou non-meublé <span class="form-required">*</span></div>
+                            <div class="custom-controls-stacked form-control @error('furnished') is-invalid @enderror">
+                                <label class="custom-control custom-radio custom-control-inline ">
+                                    <input type="radio" class="custom-control-input" name="furnished" value="1"
+                                    {{ old('furnished') === '1' ? 'checked' : ''}}>
+                                    <span class="custom-control-label">Meublé</span>
+                                </label>
+                                <label class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" name="furnished" value="0"
+                                    {{ old('furnished') === '0' ? 'checked' : ''}}>
+                                    <span class="custom-control-label">Non-meublé</span>
+                                </label>
+                            </div>
+                            @error('furnished')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="nb_rooms" class="form-label">Nombre de chambres <span class="form-required">*</span></label>
+                            <input name="nb_rooms" type="number" required class="form-control @error('nb_rooms') is-invalid @enderror" placeholder="Nombre de chambres" value="{{ old('nb_rooms') }}">
+                            @error('nb_rooms')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="size" class="form-label">Taille en m2</label>
+                            <input name="size" type="number" class="form-control @error('size') is-invalid @enderror" placeholder="Taille" value="{{ old('size') }}">
+                            @error('size')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card-footer text-right">
@@ -133,5 +167,22 @@
         </form>
     </div>
 </div>
+@endsection
 
+@section('scripts')
+<script>
+    const propertyTypeSelect = document.getElementById('select-type');
+
+    propertyTypeSelect.addEventListener('change', function(e) {
+        e.preventDefault();
+
+        let typeId = this.options[this.options.selectedIndex].value;
+
+        let path = window.location.pathname + '?type=' + typeId;
+
+        window.location.href = path;
+
+    });
+
+</script>
 @endsection

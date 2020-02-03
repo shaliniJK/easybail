@@ -35,12 +35,12 @@ Route::patch('/properties/{property}/edit', 'PropertyController@update')->name('
 Route::delete('/properties/{property}', 'PropertyController@destroy')->name('property.delete');
 
 Route::get('/locataires', 'LocataireController@index')->name('locataires.index');
-Route::post('/locataires', 'LocataireController@store');
+Route::post('/locataires', 'LocataireController@store')->name('locataires.store');
 Route::get('/locataires/create', 'LocataireController@create')->name('locataires.create');
 Route::get('/locataires/{locataire}', 'LocataireController@show')->name('locataires.show');
 Route::get('/locataires/{locataire}/edit', 'LocataireController@edit')->name('locataires.edit');
 Route::put('/locataires/{locataire}', 'LocataireController@update');
-
+Route::delete('/locataires/{locataire}', 'LocataireController@destroy')->name('locataires.delete');
 
 Route::get('/locations', 'LocationController@index')->name('locations.index');
 Route::post('/locations', 'LocationController@store');
@@ -55,8 +55,6 @@ Route::get('/paiements/create', 'PaiementController@create')->name('paiements.cr
 Route::get('/paiements/{paiement}', 'PaiementController@show')->name('paiements.show');
 Route::get('/paiements/{paiement}/edit', 'PaiementController@edit')->name('paiements.edit');
 Route::put('/paiements/{paiement}', 'PaiementController@update');
-
-
 
 // user profile
 Route::get('/profile', 'ProfileController@index')->name('profile');

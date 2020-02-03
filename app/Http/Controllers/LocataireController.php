@@ -16,19 +16,21 @@ class LocataireController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $properties = $user->properties;
-        $locataires = Locataire::latest()->get();
-        $property = Property::find(1)->address;
+        $locataires = $user->locataires;
 
-        return view('locataires.index')->with(compact('user', 'properties', 'property', 'locataires'));
+        $locations = $locataires->map(function ($locataire) { return $locataire->location; })->flatten();
+
+        $property = new Property();
+
+        return view('locataires.index')->with(compact('user', 'property', 'locataires'));
     }
 
     // show a single ressource
     public function show(Locataire $locataire)
     {
-        $property = Property::find($locataire->property_id);
+        $this->checkUserAuthorization($locataire);
 
-        return view('locataires.show', ['user' => auth()->user(), 'locataire' => $locataire, 'property' => $property]);
+        return view('locataires.show', ['user' => request()->user(), 'locataire' => $locataire]);
     }
 
     // show a view to create a new ressource
@@ -37,16 +39,27 @@ class LocataireController extends Controller
         return view('locataires.create', ['user' => auth()->user()]);
     }
 
-    // persist that create form
+    /**
+     * Store the locataire.
+     *
+     * @param Request $request
+     */
     public function store(Request $request)
     {
         $locataire = $this->validateLocataire();
-        Locataire::create($locataire);
+
+        $user = $request->user();
+
+        $user->locataires()->create($locataire);
 
         return redirect(route('locataires.index'))->with('success', 'Votre locataire a bien été ajouté !');
     }
 
-    // Show a view to edit
+    /**
+     * Show a view to edit the locataire.
+     *
+     * @param Locataire $locataire
+     */
     public function edit(Locataire $locataire)
     {
         return view('locataires.edit', [
@@ -57,11 +70,16 @@ class LocataireController extends Controller
 
     public function update(Locataire $locataire)
     {
+        $this->checkUserAuthorization($locataire);
+
         $locataire->update($this->validateLocataire());
 
         return redirect($locataire->path())->with('success', 'Votre locataire a bien été modifié !');
     }
 
+    /**
+     * Validates the request to get the locataire attributes.
+     */
     protected function validateLocataire()
     {
         return request()->validate([
@@ -80,8 +98,26 @@ class LocataireController extends Controller
         ]);
     }
 
-    // delete
-    public function destroy($id)
+    /**
+     * Deletes a locataire.
+     *
+     * @param Locataire $locataire
+     */
+    public function destroy(Locataire $locataire)
     {
+        $this->checkUserAuthorization($locataire);
+
+        $locataire->delete();
+
+        return redirect(route('locataires'))->with('warning', 'Votre locataire a été supprimé !');
+    }
+
+    private function checkUserAuthorization(Locataire $locataire)
+    {
+        $user = request()->user();
+
+        if ($locataire->user_id !== $user->id) {
+            abort(401);
+        }
     }
 }

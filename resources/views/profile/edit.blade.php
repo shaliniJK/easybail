@@ -28,13 +28,13 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-label">Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Melbourne, Australia">
+                        <input type="text" class="form-control" placeholder="Home Address" >
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="form-group">
                         <label class="form-label">Ville</label>
-                        <input type="text" class="form-control" placeholder="City" value="Melbourne">
+                        <input type="text" class="form-control" placeholder="City">
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label class="form-label">Country</label>
+                        <label class="form-label">Pays</label>
                         <select class="form-control custom-select">
                             <option value="">Germany</option>
                         </select>

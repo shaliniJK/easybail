@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Property;
 use App\PropertyType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class PropertyController extends Controller
 {
+    private const TYPE_MAISON = 1;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -31,6 +34,8 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+        $this->checkUserAuthorization($property);
+
         $locataires = $property->locations()->get()
             ->map(function ($location) {
                 return $location->locataire()->get();
@@ -38,7 +43,7 @@ class PropertyController extends Controller
             ->flatten();
 
         return view('properties.show', [
-            'user' => auth()->user(),
+            'user' => request()->user(),
             'property' => $property,
             'locataires' => $locataires,
         ]);
@@ -47,12 +52,28 @@ class PropertyController extends Controller
     /**
      * Returns the view containing the form to create a new property.
      */
-    public function create()
+    public function create(Request $request)
     {
+        $attributes = $this->getPropertyTypeAttributesFromRequest($request);
+
         return view('properties.create', [
             'user' => auth()->user(),
             'types' => PropertyType::all(),
+            'attributes' => $attributes,
         ]);
+    }
+
+    private function getPropertyTypeAttributesFromRequest(Request $request): Collection
+    {
+        if ($request->type === null) {
+            $maison = PropertyType::find(self::TYPE_MAISON);
+
+            return $maison === null ? collect([]) : $maison->attributes;
+        }
+
+        $propertyType = PropertyType::find($request->type);
+
+        return $propertyType === null ? collect([]) : $propertyType->attributes;
     }
 
     /**
@@ -76,6 +97,8 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
+        $this->checkUserAuthorization($property);
+
         return view('properties.edit', [
             'user' => auth()->user(),
             'property' => $property,
@@ -90,6 +113,8 @@ class PropertyController extends Controller
      */
     public function update(Property $property)
     {
+        $this->checkUserAuthorization($property);
+
         $property->update($this->validateProperty());
 
         return redirect(route('properties.show', $property->id))->with('success', 'Votre bien a été modifié !');
@@ -102,6 +127,8 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        $this->checkUserAuthorization($property);
+
         $property->delete();
 
         return redirect(route('properties'))->with('warning', 'Votre bien a été supprimé !');
@@ -120,5 +147,14 @@ class PropertyController extends Controller
             'furnished' => 'boolean|required',
             'property_type_id' => 'required|exists:property_types,id',
         ]);
+    }
+
+    private function checkUserAuthorization(Property $property)
+    {
+        $user = request()->user();
+
+        if ($property->user_id !== $user->id) {
+            abort(401);
+        }
     }
 }

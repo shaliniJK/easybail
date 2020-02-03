@@ -16,12 +16,12 @@
                         <a class="dropdown-item" href="{{ route('profile') }}">
                             <i class="dropdown-icon fe fe-user"></i> Profile
                         </a>
-                        <a class="dropdown-item" href="#">
+                        {{-- <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-settings"></i> Paramètres
                         </a>
                         <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-send"></i> Mon Compte
-                        </a>
+                        </a> --}}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="dropdown-icon fe fe-log-out"></i> Déconnexion
