@@ -134,4 +134,18 @@ class LocationController extends Controller
             abort(401);
         }
     }
+
+    public function bail(Location $location)
+    {
+        $this->checkUserAuthorization($location);
+        $user = auth()->user();
+
+        return view('locations.bail', [
+            'user' => $user,
+            'location' => $location,
+            'properties' => $user->properties,
+            'locataires' => $user->locataires,
+            'bail_types' => BailType::all(),
+        ]);
+    }
 }

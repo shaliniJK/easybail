@@ -43,6 +43,7 @@ Route::put('/locataires/{locataire}', 'LocataireController@update');
 Route::delete('/locataires/{locataire}', 'LocataireController@destroy')->name('locataires.delete');
 
 Route::get('/locations', 'LocationController@index')->name('locations.index');
+Route::get('/locations/bail', 'LocationController@bail')->name('locations.bail');
 Route::get('/locations/create', 'LocationController@create')->name('locations.create');
 Route::post('/locations', 'LocationController@store')->name('locations.store');
 Route::get('/locations/{location}', 'LocationController@show')->name('locations.show');

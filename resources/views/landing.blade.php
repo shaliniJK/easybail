@@ -73,14 +73,9 @@
                 <div class="row justify-content-between">
                     <div class="col-md-6 text-white">
                         <h2 class="font-weight-bold">Contacter nous</h2>
-                        <p class="my-4">
-                            Te iisque labitur eos, nec sale argumentum scribentur,
-                            <br> augue disputando in vim. Erat fugit sit at, ius lorem.
-                        </p>
                         <ul class="list-unstyled">
                             <li>Email : company_email@com</li>
-                            <li>Phone : 361-688-5824</li>
-                            <li>Address : 4826 White Avenue, Corpus Christi, Texas</li>
+                            <li>Numéro de télèphone : 361-688-5824</li>
                         </ul>
                     </div>
                 </div>

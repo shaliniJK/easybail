@@ -13,8 +13,8 @@
                         <i class="fa fa-eur"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="javascript:void(0)">132 <small>Sales</small></a></h4>
-                        <small class="text-muted">12 waiting payments</small>
+                        <h4 class="m-0"><a href="javascript:void(0)">{{ $user->$properties}} <small>Paiements</small></a></h4>
+                        <small class="text-muted">Mes paiements</small>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,8 @@
                         <i class="fa fa-shopping-bag"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="javascript:void(0)">78 <small>Orders</small></a></h4>
-                        <small class="text-muted">32 shipped</small>
+                        <h4 class="m-0"><a href="/properties">{{ $properties ->count() }} <small>Biens enregistrés</small></a></h4>
+                        <small class="text-muted">Mes biens</small>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                         <i class="fa fa-user"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="javascript:void(0)">1,352 <small>Members</small></a></h4>
-                        <small class="text-muted">163 registered today</small>
+                        <h4 class="m-0"><a href="/locataires">{{ $locataires ->count() }} <small>Locataires enregistrés</small></a></h4>
+                        <small class="text-muted">Mes locataires</small>
                     </div>
                 </div>
             </div>
@@ -58,112 +58,61 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Mes Paiements</h3>
-                </div>
-                <div class="table-responsive">
-                    <table class="table card-table table-vcenter text-nowrap datatable">
-                        <thead>
-                            <tr>
-                                <th class="w-1">No.</th>
-                                <th>Biens</th>
-                                <th>Locataire</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Montant</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="text-muted">001401</span></td>
-                                <td><a href="invoice.html" class="text-inherit">Design Works</a></td>
-                                <td>
-                                    Carlson Limited
-                                </td>
-                                <td>
-                                    15 Dec 2017
-                                </td>
-                                <td>
-                                    <span class="status-icon bg-success"></span> Paid
-                                </td>
-                                <td>$887</td>
-                                <td class="text-right">
-                                    <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a class="icon" href="javascript:void(0)">
-                                        <i class="fe fe-edit"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-muted">001402</span></td>
-                                <td><a href="invoice.html" class="text-inherit">UX Wireframes</a></td>
-                                <td>
-                                    Adobe
-                                </td>
-                                <td>
-                                    12 Apr 2017
-                                </td>
-                                <td>
-                                    <span class="status-icon bg-warning"></span> Pending
-                                </td>
-                                <td>$1200</td>
-                                <td class="text-right">
-                                    <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a class="icon" href="javascript:void(0)">
-                                        <i class="fe fe-edit"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text-muted">001406</span></td>
-                                <td><a href="invoice.html" class="text-inherit">Sales Presentation</a></td>
-                                <td>
-                                    Tabdaq
-                                </td>
-                                <td>
-                                    4 Feb 2018
-                                </td>
-                                <td>
-                                    <span class="status-icon bg-secondary"></span> Due in 3 Weeks
-                                </td>
-                                <td>$300</td>
-                                <td class="text-right">
-                                    <a href="javascript:void(0)" class="btn btn-secondary btn-sm">Manage</a>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Actions</button>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a class="icon" href="javascript:void(0)">
-                                        <i class="fe fe-edit"></i>
-                                    </a>
-                                </td>
-                            </tr>
+        <form class="card">
+            <div class="card-body">
+                <h3 class="card-title">Mes informations personnels</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-label">Address email</label>
+                            <input type="email" class="form-control" placeholder={{ $user-> email}} value={{ $user-> email}}>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Prenom</label>
+                            <input type="text" class="form-control" placeholder={{ $user-> first_name}} value={{ $user-> first_name}}>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Nom</label>
+                            <input type="text" class="form-control" placeholder={{ $user-> last_name}} value={{ $user-> last_name}}>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" placeholder="Home Address">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Ville</label>
+                            <input type="text" class="form-control" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="form-label">Code Postal</label>
+                            <input type="number" class="form-control" placeholder="ZIP Code">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Pays</label>
+                            <select class="form-control custom-select">
+                                <option value="">Germany</option>
+                            </select>
+                        </div>
+                    </div>
 
-                        </tbody>
-                    </table>
-                    <script>
-                        require(['datatables', 'jquery'], function(datatable, $) {
-                            $('.datatable').DataTable();
-                        });
-                    </script>
                 </div>
-            </div>
-        </div>
+                <div class="card-footer text-right">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </div>
+        </form>
+
     </div>
 
 

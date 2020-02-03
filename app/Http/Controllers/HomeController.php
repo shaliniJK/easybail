@@ -1,5 +1,9 @@
 <?php
 
+use App\Location;
+use App\Locataire;
+use App\Property;
+
 namespace App\Http\Controllers;
 
 class HomeController extends Controller
@@ -19,9 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $user = auth()->user();
         $properties = $user->properties;
+        $locataires = $user->locataires;
 
-        return view('home')->with(compact('user', 'properties'));
+
+
+
+        return view('home')->with(compact('user', 'properties', 'locataires'));
     }
 }
