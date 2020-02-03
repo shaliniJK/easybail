@@ -75,4 +75,14 @@ class PaiementController extends Controller
     {
         //
     }
+
+    public function showQuittance(Paiement $paiement)
+    {
+        $location = Location::find($paiement->location_id);
+        return view('paiements.quittance', [
+            'user' => auth()->user(),
+            'paiement' => $paiement,
+            'location' => $location,
+        ]);
+    }
 }
