@@ -39,7 +39,7 @@
                 <td class="d-none d-md-table-cell">Loyer</td>
                 <td class="d-none d-md-table-cell">610,00</td>
                 <td class="d-none d-md-table-cell"></td>
-                <td class="d-none d-md-table-cell"></td>
+                <td class="d-none d-md-table-cell">610,00</td>
 
             </tr>
             <tr>
@@ -55,8 +55,8 @@
                 <td class="d-none d-sm-table-cell">15/03/2016</td>
                 <td class="d-none d-md-table-cell">VERSEMENT NOM LOC</td>
                 <td class="d-none d-md-table-cell"></td>
-                <td class="d-none d-md-table-cell"></td>
-                <td class="d-none d-md-table-cell"></td>
+                <td class="d-none d-md-table-cell">660,00</td>
+                <td class="d-none d-md-table-cell">0,00</td>
             </tr>
             <tr>
 

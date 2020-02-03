@@ -29,7 +29,7 @@
             <header>
                 <div class="row justify-content-between">
                     <div class="col-2">
-                        <img src="img/logo.png" alt="logo">
+                        <img src="/images/easy.png" alt="logo">
                     </div>
                     <div class="col-6 align-self-center text-right">
                         <a href="{{ route('login') }}" class="text-white lead">Se connecter</a>
