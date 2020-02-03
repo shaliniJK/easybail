@@ -20,6 +20,7 @@
             @forelse ($locations as $location)
             <div class="col-lg-6">
                 <div class="card">
+                    <div class="card-status bg-blue"></div>
                     <div class="card-header">
                         <h3 class="card-title">{{ $location->description() }}</h3>
 
