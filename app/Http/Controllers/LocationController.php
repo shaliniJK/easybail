@@ -17,16 +17,16 @@ class LocationController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $properties = $user->properties;
-        $locataires = $user->locataires;
         $locations = $user->locations;
 
-        return view('locations.index')->with(compact('user', 'properties', 'locataires', 'locations'));
+        return view('locations.index')->with(compact('user', 'locations'));
     }
 
     // show a single ressource
     public function show(Location $location)
     {
+        $this->checkUserAuthorization($location);
+
         $property = Property::find($location->property_id);
         $locataire = Locataire::find($location->locataire_id);
 
@@ -66,6 +66,8 @@ class LocationController extends Controller
     // Show a view to edit
     public function edit(Location $location)
     {
+        $this->checkUserAuthorization($location);
+
         return view('locations.edit', [
             'user' => auth()->user(),
             'location' => $location,
@@ -74,6 +76,8 @@ class LocationController extends Controller
 
     public function update(Location $location)
     {
+        $this->checkUserAuthorization($location);
+
         $location->update($this->validateLocation());
 
         return redirect($location->path());
@@ -99,5 +103,14 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
+    }
+
+    private function checkUserAuthorization(Location $location)
+    {
+        $user = request()->user();
+
+        if ($location->user_id !== $user->id) {
+            abort(401);
+        }
     }
 }

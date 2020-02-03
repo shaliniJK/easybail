@@ -9,34 +9,45 @@
         </a>
 
         <div class="list-group list-group-transparent mb-0">
-            <a href="/index.html" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Toutes les locations</a>
+            <a href="{{ route('locations.index') }}" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Toutes mes Locations</a>
         </div>
 
-        {{-- <div class="list-group list-group-transparent mb-0">
-            <a href="#" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-user"></i></span>Tous les Garants</a>
-        </div> --}}
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-9">
         @include('partials.alerts')
-        <div class="card">
-            <table class="table card-table table-vcenter">
-                <tr>
-                    <th class="d-none d-sm-table-cell">ID Bien en location</th>
-                    <th class="d-none d-sm-table-cell">Loyer</th>
-                    <th class="d-none d-sm-table-cell">ID Locataire</th>
-                </tr>
-                @foreach($locations as $location)
-                <tr>
 
+        <div class="row row-deck">
+            @forelse ($locations as $location)
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ $location->description() }}</h3>
 
-                    <td><a href="{{ $location->path() }}" class="collection-item"> {{ $location->property_id }}</a></td>
-                    <td class="d-none d-sm-table-cell">{{ $location->loyer }}</td>
-                    <td class="d-none d-sm-table-cell">{{ $location->locataire_id }}</td>
-
-
-                </tr>
-                @endforeach
-            </table>
+                    </div>
+                    <div class="card-body">
+                        <p>Loué à <b>{{ $location->locataire->fullName() }}</b></p>
+                        <p>Montant de loyer à <b>{{ $location->loyer }}</b> euros</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-options justify-content-end">
+                            <a href="{{ route('locations.show', $location->id) }}" class="btn btn-primary btn-sm">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-status bg-yellow"></div>
+                    <div class="card-body">
+                        <h4 class="mb-3">Vous n'avez aucune location en cours !</h4>
+                        <a href="{{ route('locations.create') }}" class="btn btn-block w-50 btn-primary mt-4">
+                            Créer une nouvelle location
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endforelse
         </div>
     </div>
 </div>

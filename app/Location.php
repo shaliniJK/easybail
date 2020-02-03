@@ -29,4 +29,9 @@ class Location extends Model
     {
         return $this->belongsTo(Locataire::class, 'locataire_id');
     }
+
+    public function description()
+    {
+        return "Location de votre {$this->property->designation()}";
+    }
 }
