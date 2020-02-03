@@ -13,4 +13,9 @@ class PropertyType extends Model
     {
         return $this->hasMany(Property::class);
     }
+
+    public function attributes()
+    {
+        return $this->belongsToMany('App\Attribute', 'property_type_attributes');
+    }
 }

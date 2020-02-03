@@ -8,6 +8,8 @@ class Location extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['property', 'locataire'];
+
     public function path()
     {
         return route('locations.show', $this);

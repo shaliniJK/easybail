@@ -8,15 +8,12 @@ class CreateLocatairesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
         Schema::create('locataires', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('property_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address');
@@ -40,8 +37,6 @@ class CreateLocatairesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

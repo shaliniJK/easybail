@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Locataire extends Model
 {
-    //protected $fillable = ['first_name', 'last_name', 'email'];
+    protected $fillable = ['first_name', 'last_name', 'address', 'postalcode', 'city', 'country', 'email', 'birth_date', 'place_of_birth', 'nationality', 'phone_number', 'idcard_number'];
+
     protected $guarded = [];
+
+    protected $with = ['location'];
 
     public function path()
     {
