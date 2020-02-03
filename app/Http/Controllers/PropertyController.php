@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 
 class PropertyController extends Controller
 {
-    private const TYPE_MAISON = 1;
+    const TYPE_MAISON = 1;
 
     public function __construct()
     {

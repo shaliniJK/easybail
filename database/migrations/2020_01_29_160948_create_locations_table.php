@@ -16,7 +16,6 @@ class CreateLocationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('property_id');
             $table->unsignedBigInteger('locataire_id');
-            $table->integer('nb_locataire');
             $table->string('loyer');
             $table->string('charges');
             $table->string('preavis');

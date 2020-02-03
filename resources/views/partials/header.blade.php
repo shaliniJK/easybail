@@ -16,12 +16,6 @@
                         <a class="dropdown-item" href="{{ route('profile') }}">
                             <i class="dropdown-icon fe fe-user"></i> Profile
                         </a>
-                        {{-- <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-settings"></i> Paramètres
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-send"></i> Mon Compte
-                        </a> --}}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="dropdown-icon fe fe-log-out"></i> Déconnexion
@@ -53,10 +47,10 @@
                         <a href="{{ route('locataires.index') }}" class="nav-link {{ request()->routeIs('locataires*') ? 'active' : '' }}"><i class="fe fe-file-text"></i> Mes Locataires</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="{{ route('paiements.index') }}" class="nav-link"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
+                        <a href="{{ route('paiements.index') }}" class="nav-link {{ request()->routeIs('paiements*') ? 'active' : '' }}"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('locations.index') }}" class="nav-link"><i class="fe fe-message-circle"></i> Mes Locations</a>
+                        <a href="{{ route('locations.index') }}" class="nav-link {{ request()->routeIs('locations*') ? 'active' : '' }}"><i class="fe fe-message-circle"></i> Mes Locations</a>
                     </li>
 
                 </ul>

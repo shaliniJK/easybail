@@ -18,8 +18,8 @@ class LocationController extends Controller
     {
         $user = auth()->user();
         $properties = $user->properties;
-        $locations = $user->locations;
         $locataires = $user->locataires;
+        $locations = $user->locations;
 
         return view('locations.index')->with(compact('user', 'properties', 'locataires', 'locations'));
     }
@@ -33,20 +33,34 @@ class LocationController extends Controller
         return view('locations.show', ['user' => auth()->user(), 'property' => $property, 'locataire' => $locataire, 'location' => $location]);
     }
 
-    // show a view to create a new ressource
+    /**
+     * Show a view to create a new location.
+     */
     public function create()
     {
-        return view('locations.create', ['user' => auth()->user()]);
+        $user = auth()->user();
+
+        return view('locations.create', [
+            'user' => $user,
+            'properties' => $user->properties,
+            'locataires' => $user->locataires,
+        ]);
     }
 
-    // persist that create form
+    /**
+     * Creates a new location.
+     *
+     * @param Request $request
+     */
     public function store(Request $request)
     {
         $location = $this->validateLocation();
 
-        Location::create($location);
+        $user = $request->user();
 
-        return redirect(route('locations.index'))->with('success', 'Votre location a bien été ajouté !');
+        $user->locations()->create($location);
+
+        return redirect(route('locations.index'))->with('success', 'Votre location a bien été crée !');
     }
 
     // Show a view to edit
@@ -68,17 +82,22 @@ class LocationController extends Controller
     protected function validateLocation()
     {
         return request()->validate([
+            'property_id' => 'required|exists:properties,id',
+            'locataire_id' => 'required|exists:locataires,id',
             'loyer' => 'required',
             'charges' => 'required',
             'preavis' => 'required',
-            'nb_locataire' => 'required',
-            'date_signature_bail' => 'required',
-            'date_entree' => 'required',
+            'date_signature_bail' => 'required|date',
+            'date_entree' => 'required|date',
         ]);
     }
 
-    // delete
-    public function destroy($id)
+    /**
+     * Destroys a location.
+     *
+     * @param Location $location
+     */
+    public function destroy(Location $location)
     {
     }
 }

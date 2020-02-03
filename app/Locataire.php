@@ -10,8 +10,6 @@ class Locataire extends Model
 
     protected $guarded = [];
 
-    protected $with = ['location'];
-
     public function path()
     {
         return route('locataires.show', $this);
