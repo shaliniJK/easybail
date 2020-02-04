@@ -4,12 +4,12 @@
 
 <div class="col-lg-10 text-justify">
     <p>
-        <h2>CONTRAT DE LOCATION INITIAL D’UNE HABITATION POUR MEUBLÉE</h2>
+        <h2>CONTRAT DE LOCATION INITIAL D’UNE HABITATION</h2>
         <h2> CONCU EN APPLICATION DE LA LOI N° 89-462 DU 6JUILLET 1989</h2>
 
         <h5>ENTRE LES SOUSSIGNES</h5>
         <div class="col-lg-10">
-            <p> {{ $location->user->first_name }} {{ $location->user->last_name }}, résidentes 68 rue Gustave DELORY 59000 LILLE.
+            <p> {{ $location->user->first_name }} {{ $location->user->last_name }}, résident 68 rue Gustave DELORY 59000 LILLE.
                 Ci-après dénommé ’ le <strong>BAILLEUR</strong>‘’ D’UNE PART</p>
         </div>
         <h5> ET</h5>
@@ -30,7 +30,7 @@
             conformément aux dispositions de la loi n° 89-462 du 6 juillet 1989, à {{ $location->locataire->fullName() }} soussigné de deuxième part, qui acceptent les biens dont la désignation suit :</p>
         <h5>Désignation des lieux</h5>
         <p>Un appartement au rez-de-chaussée de l’immeuble sis à {{ $location->property->city}} ({{ $location->property->postcode}}), {{ $location->property->address}},
-            d’environ 20 m2, comprenant un couloir d’entrée desservant la cuisine et la chambre, une cuisine
+            d’environ {{ $location->property->size }} m2, comprenant un couloir d’entrée desservant la cuisine et la chambre, une cuisine
             équipée, une chambre et une salle de bain avec WC.
             Tels que les dits lieux, conformes aux plan et descriptifs annexés aux présentent s’étendent, se
             poursuivent et comportent dans leur état actuel, sans exception ni réserve, bien connus du preneur
@@ -246,13 +246,16 @@
             que 15 jours après la notification par ses assureurs au bailleur.</p>
         <h5>Equipements</h5>
         <p>Le preneur s’engage à :
-            - effectuer l'entretien régulier des équipements et veiller à leur bon fonctionnement.
-            - prévenir le bailleur de la moindre dégradation ou anomalie de fonctionnement, De permettre
-            à cet effet l'accès des lieux au bailleur, à ses agents ou aux entreprises chargée de la
-            vérification et de l'entretien, sous peine d'être tenu personnellement responsable de toutes
-            les réparations ultérieures.
-            - rembourser au bailleur, à première demande, les frais de réparation et d'entretien des
-            équipements.</p>
+            <ul>
+                <li>effectuer l'entretien régulier des équipements et veiller à leur bon fonctionnement.</li>
+                <li>prévenir le bailleur de la moindre dégradation ou anomalie de fonctionnement, permettre
+                    à cet effet l'accès des lieux au bailleur, à ses agents ou aux entreprises chargée de la
+                    vérification et de l'entretien, sous peine d'être tenu personnellement responsable de toutes
+                    les réparations ultérieures.</li>
+                <li>rembourser au bailleur, à première demande, les frais de réparation et d'entretien des
+                    équipements.</li>
+            </ul>
+        </p>
 
         <h5>Règlement d’immeuble collectif</h5>
 
@@ -264,7 +267,7 @@
             N’exposer aux fenêtres et aux murs de l’immeuble, en dehors de la devanture, ni caisses et pots
             de fleurs, ni aucun objet de quelque nature qu’il soit.
             Le preneur reconnaît avoir pris connaissance des consignes de sécurité et du plan d’évacuation
-            de l’immeuble en cas d’incendie ; il dégage la responsabilité du bailleur, de son mandataire et du
+            de l’immeuble en cas d’incendie , il dégage la responsabilité du bailleur, de son mandataire et du
             syndic de l’immeuble à ce sujet.
             N’installer aucune enseigne, affiche, store, antenne de télévision ou de radio sans l’accord
             préalable du bailleur qui pourra imposer un modèle de son choix.
