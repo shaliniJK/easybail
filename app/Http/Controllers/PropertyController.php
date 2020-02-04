@@ -120,12 +120,7 @@ class PropertyController extends Controller
         return redirect(route('properties.show', $property->id))->with('success', 'Votre bien a été modifié !');
     }
 
-    /**
-     * Destroys the given property.
-     *
-     * @param Property $property
-     */
-    public function destroy(Property $property)
+    public function bail(Property $property)
     {
         $this->checkUserAuthorization($property);
 
