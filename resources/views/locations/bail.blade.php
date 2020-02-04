@@ -110,8 +110,8 @@
     <h5>DEPOT DE GARANTIENS</h5>
     <div class="col-lg-10">
         <p>Pour garantir l’exécution de toutes les charges, clauses et conditions du présent bail, le preneur
-            versera, à l’entrée dans les lieux, au bailleur la somme de 830 € (huit cents trente euros)
-            correspondant à un mois de loyer, à titre de dépôt de garantie non productif d’intérêts, ni
+            versera, à l’entrée dans les lieux, au bailleur la somme correspondant à un mois de loyer,
+            à titre de dépôt de garantie non productif d’intérêts, ni
             actualisable. Le bailleur lui en donnera valable quittance.
             Cette somme sera conservée par le bailleur jusqu’à l’expiration du bail, elle sera restituée au
             preneur, dans les 2 mois suivant la date de restitution des lieux, sous réserve de la complète
