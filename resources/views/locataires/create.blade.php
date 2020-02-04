@@ -31,9 +31,9 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email" class="form-label">Adresse email <span class="form-required">*</span> </label>
+                            <label for="email" class="form-label">Email <span class="form-required">*</span> </label>
                             <input type="text" class="input form-control @error('email') is-invalid @enderror" placeholder="email" id="email" name="email" value="{{ old('email') }}">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="address" class="form-label">Addresse postale <span class="form-required">*</span> </label>
                             <input type="text" class="input form-control @error('address') is-invalid @enderror" placeholder="adresse" id="address" name="address" value="{{ old('address') }}">

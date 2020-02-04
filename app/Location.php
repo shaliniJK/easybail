@@ -35,6 +35,11 @@ class Location extends Model
         return $this->belongsTo(BailType::class, 'bail_type_id');
     }
 
+    public function paiements()
+    {
+        return $this->hasMany(Paiement::class);
+    }
+
     public function description()
     {
         return "Location de votre {$this->property->designation()}";

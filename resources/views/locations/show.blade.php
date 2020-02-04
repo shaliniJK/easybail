@@ -8,16 +8,19 @@
             Ajouter une nouvelle location
         </a>
         <div class="list-group list-group-transparent mb-0">
-            <a href="{{ route('locations.index') }}" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Toutes mes Locations</a>
+            <a href="{{ route('paiements.create', $location->id) }}" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Enregistrer un paiement</a>
+        </div>
+        <div class="list-group list-group-transparent mb-0">
+            <a href="{{ route('paiements.createEcheance', $location->id) }}" class="list-group-item list-group-item-action "><span class="icon mr-3"><i class="fe fe-flag"></i></span>Envoyer un avis d'écheance de paiement</a>
         </div>
         <div class="list-group list-group-transparent mb-0">
             <a href="{{ route('locations.edit', $location->id) }}" class="list-group-item list-group-item-action">
                 <span class="icon mr-3"><i class="fe fe-edit-2"></i></span>Modifier cette location
             </a>
         </div>
-        <button type="button" class="btn btn-danger w-100 d-block mt-4" data-toggle="modal" data-target="#modal-archive-location">
+        {{-- <button type="button" class="btn btn-danger w-100 d-block mt-4" data-toggle="modal" data-target="#modal-archive-location">
             <span class="icon mr-3"><i class="fe fe-trash-2 text-white"></i></span>Archiver cette location
-        </button>
+        </button> --}}
     </div>
     <div class="col-lg-9">
         @include('partials.alerts')

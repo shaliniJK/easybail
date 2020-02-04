@@ -20,6 +20,6 @@ class Paiement extends Model
 
     public function location()
     {
-        return $this->hasOne(Property::class, 'location_id');
+        return $this->belongsTo(Location::class, 'location_id');
     }
 }

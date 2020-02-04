@@ -13,7 +13,7 @@
                         <i class="fa fa-eur"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="javascript:void(0)">{{ $user->$properties}} <small>Paiements</small></a></h4>
+                        <h4 class="m-0"><a href="/paiements">{{ $paiements->count() }} <small>Paiements</small></a></h4>
                         <small class="text-muted">Mes paiements</small>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <i class="fa fa-shopping-bag"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="/properties">{{ $properties ->count() }} <small>Biens enregistrés</small></a></h4>
+                        <h4 class="m-0"><a href="/properties">{{ $properties->count() }} <small>Biens</small></a></h4>
                         <small class="text-muted">Mes biens</small>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <i class="fa fa-user"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="/locataires">{{ $locataires ->count() }} <small>Locataires enregistrés</small></a></h4>
+                        <h4 class="m-0"><a href="/locataires">{{ $locataires->count() }} <small>Locataires</small></a></h4>
                         <small class="text-muted">Mes locataires</small>
                     </div>
                 </div>
@@ -52,13 +52,13 @@
                         <i class="fa fa-comments"></i>
                     </span>
                     <div>
-                        <h4 class="m-0"><a href="javascript:void(0)">132 <small>Comments</small></a></h4>
-                        <small class="text-muted">16 waiting</small>
+                        <h4 class="m-0"><a href="/locations">{{ $locations->count() }} <small>Locations</small></a></h4>
+                        <small class="text-muted">Mes Locations</small>
                     </div>
                 </div>
             </div>
         </div>
-        <form class="card">
+        {{-- <form class="card">
             <div class="card-body">
                 <h3 class="card-title">Mes informations personnels</h3>
                 <div class="row">
@@ -111,11 +111,9 @@
                 <div class="card-footer text-right">
                     <button type="submit" class="btn btn-primary">Modifier</button>
                 </div>
-        </form>
+        </form> --}}
 
     </div>
-
-
 
 </div>
 @endsection

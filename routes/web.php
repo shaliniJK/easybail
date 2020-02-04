@@ -52,12 +52,12 @@ Route::put('/locations/{location}', 'LocationController@update');
 
 Route::get('/paiements', 'PaiementController@index')->name('paiements.index');
 Route::get('/paiements/quittance', 'PaiementController@showQuittance')->name('paiements.quittance');
-Route::post('/paiements', 'PaiementController@store');
-Route::get('/paiements/create', 'PaiementController@create')->name('paiements.create');
-Route::get('/paiements/{paiement}', 'PaiementController@show')->name('paiements.show');
-Route::get('/paiements/{paiement}/edit', 'PaiementController@edit')->name('paiements.edit');
-Route::put('/paiements/{paiement}', 'PaiementController@update');
+Route::post('/paiements/{location}', 'PaiementController@store')->name('paiements.store');
+Route::get('/paiements/create/{location}', 'PaiementController@create')->name('paiements.create');
+Route::get('/paiements/avis/create/{location}', 'PaiementController@createEcheance')->name('paiements.createEcheance');
+Route::post('/paiements/avis/{location}', 'PaiementController@sendEcheance')->name('paiements.notify');
 
+Route::get('/paiements/{paiement}', 'PaiementController@show')->name('paiements.show');
 
 // user profile
 Route::get('/profile', 'ProfileController@index')->name('profile');

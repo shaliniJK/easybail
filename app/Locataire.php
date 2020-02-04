@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Locataire extends Model
 {
-    protected $fillable = ['first_name', 'last_name', 'address', 'postalcode', 'city', 'country', 'email', 'birth_date', 'place_of_birth', 'nationality', 'phone_number', 'idcard_number'];
+    use Notifiable;
+
+    protected $fillable = ['first_name', 'last_name', 'address', 'postalcode', 'city', 'country', 'email', 'birth_date',
+    'place_of_birth', 'nationality', 'phone_number', 'idcard_number', ];
 
     protected $guarded = [];
 
