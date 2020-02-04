@@ -74,8 +74,7 @@
                     <div class="col-md-6 text-white">
                         <h2 class="font-weight-bold">Contacter nous</h2>
                         <ul class="list-unstyled">
-                            <li>Email : company_email@com</li>
-                            <li>Numéro de télèphone : 361-688-5824</li>
+                            <li>Email : easybail.app@gmail.com</li>
                         </ul>
                     </div>
                 </div>

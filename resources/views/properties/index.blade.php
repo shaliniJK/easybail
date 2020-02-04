@@ -12,15 +12,13 @@
         <a href="{{ route('properties.create') }}" class="btn btn-block btn-primary mb-6">
             Ajouter un nouveau bien
         </a>
-        <!-- Getting started -->
         <div class="list-group list-group-transparent mb-0">
             <a href="{{ route('properties') }}" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Tous mes Biens</a>
         </div>
-        <!-- Components -->
-        <div class="list-group list-group-transparent mb-0">
+        {{-- <div class="list-group list-group-transparent mb-0">
             <a href="#" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-alert-triangle"></i></span>Mes Biens Vides</a>
             <a href="#" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-user"></i></span>Mes Biens en Location</a>
-        </div>
+        </div> --}}
     </div>
     <div class="col-lg-9">
         @include('partials.alerts')

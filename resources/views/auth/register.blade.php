@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col col-login mx-auto">
                 <div class="text-center mb-6">
-                    logo easy bail
+                    <img src="{{ asset('images/easy.png') }}" class="header-brand-img" alt="EasyBail logo">
                 </div>
                 <form class="card" method="POST" action="{{ route('register') }}">
                     @csrf

@@ -11,9 +11,9 @@
             <a href="{{ route('locataires.index') }}" class="list-group-item list-group-item-action active"><span class="icon mr-3"><i class="fe fe-flag"></i></span>Tous les locataires</a>
         </div>
 
-        <div class="list-group list-group-transparent mb-0">
+        {{-- <div class="list-group list-group-transparent mb-0">
             <a href="#" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-user"></i></span>Tous les Garants</a>
-        </div>
+        </div> --}}
     </div>
     <div class="col-lg-8">
         @include('partials.alerts')
@@ -25,9 +25,8 @@
                 </tr>
                 @foreach($locataires as $locataire)
                 <tr>
-                    <td><a href="{{ $locataire->path() }}" class="collection-item">{{ $locataire->last_name }} {{ $locataire->first_name }}</a></td>
-                    <td class="d-none d-sm-table-cell">{{ $locataire->property_id }}</td>
-                    <td class="d-none d-sm-table-cell">{{ $property}}</td>
+                    <td><a href="{{ $locataire->path() }}" class="collection-item">{{ $locataire->fullName() }}</a></td>
+                    <td class="d-none d-sm-table-cell">{{ $locataire->location ? $locataire->location->last()->property->designation() : 'Aucune location en cours' }}</td>
                 </tr>
                 @endforeach
             </table>

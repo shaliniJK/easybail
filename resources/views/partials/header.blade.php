@@ -1,8 +1,8 @@
 <div class="header py-4">
     <div class="container">
         <div class="d-flex">
-            <a class="header-brand text-blue" href="./index.html">
-                EasyBail
+            <a class="header-brand text-blue" href="/">
+            <img src="{{ asset('images/easy.png') }}" class="header-brand-img" alt="EasyBail logo">
             </a>
             <div class="d-flex order-lg-2 ml-auto">
                 <div class="dropdown">
