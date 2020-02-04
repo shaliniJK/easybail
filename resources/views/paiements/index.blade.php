@@ -16,6 +16,7 @@
                         <th>Mois</th>
                         <th>Date de paiement</th>
                         <th>Montant</th>
+                        <th>Quittance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,7 @@
                             {{ $paiement->received_at ? date("Y/m/d", strtotime($paiement->received_at)) :'' }}
                         </td>
                         <td>€ {{ $paiement->location->loyer }}</td>
+                        <td><a href="{{ route('paiements.quittance', $paiement->id) }}">Voir quittance</a></td>
                     </tr>
                     @endforeach
                 </tbody>

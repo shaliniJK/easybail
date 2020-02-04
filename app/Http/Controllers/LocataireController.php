@@ -109,7 +109,7 @@ class LocataireController extends Controller
 
         $locataire->delete();
 
-        return redirect(route('locataires'))->with('warning', 'Votre locataire a été supprimé !');
+        return redirect(route('locataires.index'))->with('warning', 'Votre locataire a été supprimé !');
     }
 
     private function checkUserAuthorization(Locataire $locataire)

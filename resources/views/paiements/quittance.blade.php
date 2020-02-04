@@ -5,20 +5,24 @@
 
 <div class="col-lg-8">
     <p>
-        Objet : Location HABITATION</p>
+        Objet : <b>{{ $location->bailType->type }}</b></p>
     <p>
-        Adresse : 3 rue des Sarrazins
-        59000 LILLE</p>
+        Adresse : <b>{{ $location->property->fullAddress() }}</b>
+    </p>
     <p>
-        Période : du 01/02/2016 au 29/02/2016</p>
+        Période : {{ "{$getMonth[$paiement->month - 1]} - {$paiement->year}" }}
+    </p>
     <p>
-        Date bail : 01/06/2015</p>
+        Paiement effectué à : {{ $paiement->received_at ? date("Y/m/d", strtotime($paiement->received_at)) :'' }}
+    </p>
+    <p>
+        Date bail : <b>{{ $location->date_signature_bail }}</b></p>
     <p>
         Date révision : 01/06/2015</p>
     <p>
         Indice IRL : 125.19</p>
     <p>
-        Loyer révisé : 610.0
+        Loyer révisé : <b>{{ $location->loyer }}</b>
     </p>
 </div>
 
@@ -35,27 +39,27 @@
             </tr>
             <tr>
 
-                <td class="d-none d-sm-table-cell">01/03/2016</td>
+                <td class="d-none d-sm-table-cell">{{ $location->date_entree }}</td>
                 <td class="d-none d-md-table-cell">Loyer</td>
-                <td class="d-none d-md-table-cell">610,00</td>
+                <td class="d-none d-md-table-cell">{{ $location->loyer }}</td>
                 <td class="d-none d-md-table-cell"></td>
-                <td class="d-none d-md-table-cell">610,00</td>
+                <td class="d-none d-md-table-cell">{{ $location->loyer }}</td>
 
             </tr>
             <tr>
 
-                <td class="d-none d-sm-table-cell">01/03/2016</td>
+                <td class="d-none d-sm-table-cell">{{ $location->date_entree }}</td>
                 <td class="d-none d-md-table-cell">Provision pour charges</td>
-                <td class="d-none d-md-table-cell">50,00</td>
+                <td class="d-none d-md-table-cell">{{ $location->charges }}</td>
                 <td class="d-none d-md-table-cell"></td>
-                <td class="d-none d-md-table-cell">660,00</td>
+                <td class="d-none d-md-table-cell">{{ $location->charges + $location->loyer}}</td>
             </tr>
             <tr>
 
-                <td class="d-none d-sm-table-cell">15/03/2016</td>
+                <td class="d-none d-sm-table-cell">{{ $paiement->received_at ? date("Y/m/d", strtotime($paiement->received_at)) :'' }}</td>
                 <td class="d-none d-md-table-cell">VERSEMENT NOM LOC</td>
                 <td class="d-none d-md-table-cell"></td>
-                <td class="d-none d-md-table-cell">660,00</td>
+                <td class="d-none d-md-table-cell">{{ $location->charges + $location->loyer}}</td>
                 <td class="d-none d-md-table-cell">0,00</td>
             </tr>
             <tr>
