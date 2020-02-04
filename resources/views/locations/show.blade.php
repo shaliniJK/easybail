@@ -35,12 +35,12 @@
                     <div class="media-body row">
                         <div class="col-6">
                             <address class="text-muted mb-1">{{ $location->property->address }} </address>
-                        <address class="text-muted mb-1">
-                            {{ $location->property->city .', '. $location->property->postcode }}
-                        </address>
-                        <address class="text-muted">
-                            {{( $location->property->address2 ? $location->property->address2.', ' : ''). $location->property->country }}
-                        </address>
+                            <address class="text-muted mb-1">
+                                {{ $location->property->city .', '. $location->property->postcode }}
+                            </address>
+                            <address class="text-muted">
+                                {{( $location->property->address2 ? $location->property->address2.', ' : ''). $location->property->country }}
+                            </address>
                         </div>
                         <div class="col-6">
                             <div class="h6">{{ $location->bailType->type }}</div>
@@ -73,6 +73,9 @@
                         <p>{{ $location->preavis }}</p>
                     </div>
                 </div>
+            </div>
+            <div class="card-footer text-right">
+                <a href="{{ route('locations.bail', $location->id) }}" class="btn btn-primary">Voir le bail</a>
             </div>
         </div>
     </div>
