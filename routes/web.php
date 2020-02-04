@@ -51,7 +51,7 @@ Route::get('/locations/{location}/edit', 'LocationController@edit')->name('locat
 Route::put('/locations/{location}', 'LocationController@update');
 
 Route::get('/paiements', 'PaiementController@index')->name('paiements.index');
-Route::get('/paiements/quittance', 'PaiementController@showQuittance')->name('paiements.quittance');
+Route::get('/paiements/{paiement}/quittance', 'PaiementController@showQuittance')->name('paiements.quittance');
 Route::post('/paiements/{location}', 'PaiementController@store')->name('paiements.store');
 Route::get('/paiements/create/{location}', 'PaiementController@create')->name('paiements.create');
 Route::get('/paiements/avis/create/{location}', 'PaiementController@createEcheance')->name('paiements.createEcheance');

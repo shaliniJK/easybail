@@ -119,12 +119,17 @@ class PaiementController extends Controller
 
     public function showQuittance(Paiement $paiement)
     {
-        $location = Location::find($paiement->location_id);
+        $location = $paiement->location;
+        $getMonth = [];
+        foreach (range(1, 12) as $m) {
+            $getMonth[] = date('m - F', mktime(0, 0, 0, $m, 1));
+        }
 
         return view('paiements.quittance', [
             'user' => auth()->user(),
             'paiement' => $paiement,
             'location' => $location,
+            'getMonth' => $getMonth,
         ]);
     }
 }

@@ -21,12 +21,11 @@
             <table class="table card-table table-vcenter">
                 <tr>
                     <th>Mes locataires</th>
-                    <th class="d-none d-sm-table-cell">Locations</th>
                 </tr>
                 @foreach($locataires as $locataire)
                 <tr>
                     <td><a href="{{ $locataire->path() }}" class="collection-item">{{ $locataire->fullName() }}</a></td>
-                    <td class="d-none d-sm-table-cell">{{ $locataire->location ? $locataire->location->last()->property->designation() : 'Aucune location en cours' }}</td>
+
                 </tr>
                 @endforeach
             </table>
