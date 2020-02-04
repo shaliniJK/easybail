@@ -33,8 +33,7 @@
             <div class="card-status bg-green"></div>
             <div class="card-body">
                 <p><strong> {{ $location->locataire->fullName() }}</strong></p>
-                <p><strong> {{ $location->locataire->address }}</strong></p>
-                <p><strong> {{ $location->locataire->city }}{{ $location->locataire->country }}</strong></p>
+                <p><strong> {{ $location->property->fullAddress() }}</strong></p>
             </div>
 
         </div>
@@ -54,27 +53,27 @@
                 </tr>
                 <tr>
 
-                    <td class="d-none d-sm-table-cell">{{ $location->date_entree }}</td>
+                    <td class="d-none d-sm-table-cell">{{ $paiement->received_at ? date("Y/m/d", strtotime($paiement->received_at)) :'' }}</td>
                     <td class="d-none d-md-table-cell">Loyer</td>
-                    <td class="d-none d-md-table-cell">{{ $location->loyer }}</td>
+                    <td class="d-none d-md-table-cell">{{ $location->loyer - $location->charges }}</td>
                     <td class="d-none d-md-table-cell"></td>
-                    <td class="d-none d-md-table-cell">{{ $location->loyer }}</td>
+                    <td class="d-none d-md-table-cell">{{ $location->loyer - $location->charges}}</td>
 
                 </tr>
                 <tr>
 
-                    <td class="d-none d-sm-table-cell">{{ $location->date_entree }}</td>
+                    <td class="d-none d-sm-table-cell">{{ $paiement->received_at ? date("Y/m/d", strtotime($paiement->received_at)) :'' }}</td>
                     <td class="d-none d-md-table-cell">Provision pour charges</td>
                     <td class="d-none d-md-table-cell">{{ $location->charges }}</td>
                     <td class="d-none d-md-table-cell"></td>
-                    <td class="d-none d-md-table-cell">{{ $location->charges + $location->loyer}}</td>
+                    <td class="d-none d-md-table-cell">{{ $location->loyer}}</td>
                 </tr>
                 <tr>
 
                     <td class="d-none d-sm-table-cell">{{ $paiement->received_at ? date("Y/m/d", strtotime($paiement->received_at)) :'' }}</td>
                     <td class="d-none d-md-table-cell">VERSEMENT {{ $location->locataire->fullName() }}</td>
                     <td class="d-none d-md-table-cell"></td>
-                    <td class="d-none d-md-table-cell">{{ $location->charges + $location->loyer}}</td>
+                    <td class="d-none d-md-table-cell">{{ $location->loyer}}</td>
                     <td class="d-none d-md-table-cell">0,00</td>
                 </tr>
                 <tr>

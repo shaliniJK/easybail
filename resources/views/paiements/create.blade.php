@@ -16,6 +16,7 @@
                     <div class="media-body row ">
                         <div class="col-4">
                             <h6>{{ $location->description() }}</h6>
+                            <h6>Loyer mensuel de {{ $location->loyer }} euros</h6>
                         </div>
 
                         <div class="col-4">
