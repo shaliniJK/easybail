@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-lg-10">
+<div class="col-lg-10 text-justify">
     <p>
         <h2>CONTRAT DE LOCATION INITIAL D’UNE HABITATION POUR MEUBLÉE</h2>
         <h2> CONCU EN APPLICATION DE LA LOI N° 89-462 DU 6JUILLET 1989</h2>
@@ -106,7 +106,9 @@
             frais d’abonnement et de consommation de ce compteur.
             Le point de livraison du compteur électrique du logement est « 07419392153463 »
             Les l’index de consommation seront relevés et reportés dans l’état d’entrée dans des lieux.</p>
-        <h5>DEPOT DE GARANTIENS</h5>
+    </div>
+    <h5>DEPOT DE GARANTIENS</h5>
+    <div class="col-lg-10">
         <p>Pour garantir l’exécution de toutes les charges, clauses et conditions du présent bail, le preneur
             versera, à l’entrée dans les lieux, au bailleur la somme de 830 € (huit cents trente euros)
             correspondant à un mois de loyer, à titre de dépôt de garantie non productif d’intérêts, ni
@@ -303,8 +305,6 @@
         <p>Le preneur devra tenir les lieux loués garnis de meubles, objets mobiliers, matériels et
             marchandises lui appartenant personnellement en qualité et en valeur suffisantes pour répondre
             au paiement des loyers.
-
-            Bail habitation pour meublé BEN ABDESSLEM – ZHUKENOVA Page : 7
             Le preneur devra satisfaire à toutes charges de ville et de police dont les locataires sont
             ordinairement tenus. Il devra acquitter exactement toutes les taxes et contributions personnelles,
             professionnelles ou autres à la charge des locataires, de manière que le bailleur ne puisse jamais
