@@ -46,13 +46,12 @@
                     <li class="nav-item dropdown">
                         <a href="{{ route('locataires.index') }}" class="nav-link {{ request()->routeIs('locataires*') ? 'active' : '' }}"><i class="fe fe-file-text"></i> Mes Locataires</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="{{ route('paiements.index') }}" class="nav-link {{ request()->routeIs('paiements*') ? 'active' : '' }}"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
-                    </li>
                     <li class="nav-item">
                         <a href="{{ route('locations.index') }}" class="nav-link {{ request()->routeIs('locations*') ? 'active' : '' }}"><i class="fe fe-message-circle"></i> Mes Locations</a>
                     </li>
-
+                    <li class="nav-item dropdown">
+                        <a href="{{ route('paiements.index') }}" class="nav-link {{ request()->routeIs('paiements*') ? 'active' : '' }}"><i class="fe fe-dollar-sign"></i> Mes Paiements</a>
+                    </li>
                 </ul>
             </div>
         </div>

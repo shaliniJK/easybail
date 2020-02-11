@@ -18,7 +18,7 @@ class PaiementController extends Controller
     {
         $user = auth()->user();
         $locations = $user->locations;
-        $paiements = $user->paiements;
+        $paiements = $user->paiements->sortByDesc('received_at');
         $properties = $user->properties;
 
         return view('paiements.index')->with(compact('user', 'properties', 'locations', 'paiements'));
