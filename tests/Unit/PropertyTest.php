@@ -18,6 +18,7 @@ class PropertyTest extends TestCase
         $this->property = new Property();
         $this->propertyType = new PropertyType();
 
+        $this->property->id = 700;
         $this->property->size = 42;
         $this->property->address = "68 rue Gustave Delory";
         $this->property->postcode = "59000";
