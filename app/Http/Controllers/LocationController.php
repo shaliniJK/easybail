@@ -96,9 +96,6 @@ class LocationController extends Controller
         $updatedlocation['property_id'] = $location['property_id'];
         $updatedlocation['locataire_id'] = $location['locataire_id'];
 
-        // $user = request()->user();
-
-        // $user->locations()->update($updatedlocation, ['id' => $location->id]);
         $location->update($updatedlocation);
 
         return redirect(route('locations.index'))->with('success', 'Votre location a bien été modifié !');
